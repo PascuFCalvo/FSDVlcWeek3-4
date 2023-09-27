@@ -42,8 +42,6 @@ function shuffle(WinCondition) {
 //genera el array de winCondition al arrancar
 window.addEventListener("load", () => {
   winCondition = shuffle(colors);
-  console.log("wincondition", winCondition);
-  console.log("load page", winComparation)
   paintWinConditionButtons();
   paintTry(fila);
 });
@@ -54,42 +52,24 @@ function paintWinConditionButtons() {
   }
 }
 
-function paintTry(fila) {
-  if (fila ===1 && contador <= 3) {
-    contador = 0;
-    colorPicker.addEventListener("click", (e) => {
-      if (e.target.id) {
-        firstTry.children[contador].style.backgroundColor = e.target.id;
-        winComparation.push(e.target.id);
-        contador++        
-      }
-    });
-  } else if (fila === 2) {
-    contador = 0; 
-    colorPicker.addEventListener("click", (e) => {
-      if (e.target.id) {
-        secondTry.children[contador - 1].style.backgroundColor = e.target.id;
-        winComparation.push(e.target.id);    
-      }
-    });
-  } else if (fila === 3) {
-    contador = 0;
-    colorPicker.addEventListener("click", (e) => {
-      if (e.target.id) {
-        thirdTry.children[contador - 1].style.backgroundColor = e.target.id; 
-        winComparation.push(e.target.id);   
-      }
-    });
-  } else if (fila === 4) {
-    contador = 0;
-     colorPicker.addEventListener("click", (e) => {
-      if (e.target.id) {
-        fourthTry.children[contador - 1].style.backgroundColor = e.target.id; 
-        winComparation.push(e.target.id);    
-      }
-    });
+const paintTry = () => {
+  colorPicker.addEventListener("click", colorPickerClickHandler);
+};
+
+function colorPickerClickHandler(eventoClick) {
+  if (eventoClick.target.id && contador < 3) {
+    if (fila === 1) {
+      firstTry.children[contador].style.backgroundColor = eventoClick.target.id;
+    } else if (fila === 2) {
+      secondTry.children[contador].style.backgroundColor = eventoClick.target.id;
+    } else if (fila === 3) {
+      thirdTry.children[contador].style.backgroundColor = eventoClick.target.id;
+    } else if (fila === 4) {
+      fourthTry.children[contador].style.backgroundColor = eventoClick.target.id;
+    }
+    winComparation.push(eventoClick.target.id);
+    contador++;
   }
- 
 }
 
 function comparation(array1, array2) {
@@ -113,14 +93,13 @@ function comparation(array1, array2) {
 
 
 makeTry.addEventListener("click", (e) => {
-  if (e.target.id === "makeTry") {
-    console.log("first iteration", winComparation)
+  if (e.target.id === "makeTry" && contador === 3) {
     comparation(winCondition, winComparation);
     guessResult = [];
     fila++;
     n++;
+    contador = 0;
     winComparation = [];
     paintTry(fila);
-    console.log("enter in second", winComparation)
   }
 });
