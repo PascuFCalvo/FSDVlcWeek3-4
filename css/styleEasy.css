@@ -11,7 +11,7 @@ body{
 .main-container{
    display: flex;
    background-color: grey;
-   width: 20em;
+   width: 30em;
    height: 40em;
    text-align: center;
    flex-direction: column;
@@ -69,6 +69,21 @@ body{
 }
 .color-button:active{
    opacity: 1;
+}
+
+.guesser{
+   justify-content: center;
+   text-align: center;
+   margin-top: 10px;
+   width: 6em;
+   height: 2em;
+   background-color: green;
+}
+.guesser-hidden{
+   margin-top: 1.2em;
+   width: 6em;
+   height: 1em;
+   background-color: grey;
 }
 
 

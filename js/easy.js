@@ -5,14 +5,14 @@ let firstTry = document.getElementById("firstTry");
 let secondTry = document.getElementById("secondTry");
 let thirdTry = document.getElementById("thirdTry");
 let fourthTry = document.getElementById("fourthTry");
+let guesser = document.getElementById("guesser");
 let colors = ["red", "goldenrod", "purple"];
+let fila = 1;
 let n = 1;
 let winCondition = [];
 let winComparation = [];
 let guessResult = [];
-let winConditionButton = document.getElementsByClassName(
-  "win-condition-button"
-);
+let winConditionButton = document.getElementsByClassName("win-condition-button");
 let contador = 0;
 
 returnMain = addEventListener("click", (e) => {
@@ -43,14 +43,9 @@ function shuffle(WinCondition) {
 window.addEventListener("load", () => {
   winCondition = shuffle(colors);
   console.log("wincondition", winCondition);
+  console.log("load page", winComparation)
   paintWinConditionButtons();
-  paintTry();
-});
-//observer de todas las casillas
-box = addEventListener("click", (e) => {
-  if (e.target.classList.contains("color-button")) {
-    console.log(e.target.id);
-  }
+  paintTry(fila);
 });
 
 function paintWinConditionButtons() {
@@ -59,51 +54,42 @@ function paintWinConditionButtons() {
   }
 }
 
-console.log(firstTry.children[1]);
-console.log(secondTry.children[1]);
-
-function paintTry() {
-  if (n == 1) {
+function paintTry(fila) {
+  if (fila ===1 && contador <= 3) {
     contador = 0;
-    console.log("entra a primera fila");
     colorPicker.addEventListener("click", (e) => {
-      if(e.target.id){
-          firstTry.children[contador].style.backgroundColor = e.target.id;
-          winComparation.push(e.target.id);
-    contador++;}
-    
-      
+      if (e.target.id) {
+        firstTry.children[contador].style.backgroundColor = e.target.id;
+        winComparation.push(e.target.id);
+        contador++        
+      }
     });
-  } else if (n == 2) {
-    contador = 0
-    console.log(contador);
-    console.log("entra a segunda fila");
+  } else if (fila === 2) {
+    contador = 0; 
     colorPicker.addEventListener("click", (e) => {
-      if(e.target.id){
-        secondTry.children[contador-1].style.backgroundColor = e.target.id;
-        winComparation.push(e.target.id);}
-      
+      if (e.target.id) {
+        secondTry.children[contador - 1].style.backgroundColor = e.target.id;
+        winComparation.push(e.target.id);    
+      }
     });
-  } else if (n == 3) {
+  } else if (fila === 3) {
     contador = 0;
-    console.log("entra a tercera fila");
     colorPicker.addEventListener("click", (e) => {
-      if(e.target.id){
-      thirdTry.children[contador-5].style.backgroundColor = e.target.id;
-      winComparation.push(e.target.id);}
+      if (e.target.id) {
+        thirdTry.children[contador - 1].style.backgroundColor = e.target.id; 
+        winComparation.push(e.target.id);   
+      }
     });
-    return winComparation;
-  }else if (n == 4) {
+  } else if (fila === 4) {
     contador = 0;
-
-    console.log("entra a cuarta fila");
-    colorPicker.addEventListener("click", (e) => {
-      if(e.target.id){
-      fourthTry.children[contador].style.backgroundColor = e.target.id;
-      winComparation.push(e.target.id);}
+     colorPicker.addEventListener("click", (e) => {
+      if (e.target.id) {
+        fourthTry.children[contador - 1].style.backgroundColor = e.target.id; 
+        winComparation.push(e.target.id);    
+      }
     });
-    return winComparation;
   }
+ 
 }
 
 function comparation(array1, array2) {
@@ -113,22 +99,28 @@ function comparation(array1, array2) {
     } else {
       guessResult.push("⚫");
     }
+    var newguessResult = guessResult.toString().replace(/,/g, "");
+
+    guesser.innerText = newguessResult;
   }
 
-  if (!guessResult.includes("⚫")) {
+  if (!newguessResult.includes("⚫") && n < 4) {
     alert("HAS GANAO!!!!");
-   }else if(guessResult.includes("⚫") && n === 4){
-     alert("ERES UN LOOSER");
+  } else if (newguessResult.includes("⚫") && n >= 4) {
+    alert("ERES UN LOOSER");
   }
-  return guessResult;
 }
 
-makeTry = addEventListener("click", (e) => {
+
+makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry") {
+    console.log("first iteration", winComparation)
     comparation(winCondition, winComparation);
-    winComparation = [];
     guessResult = [];
+    fila++;
     n++;
-    paintTry();
+    winComparation = [];
+    paintTry(fila);
+    console.log("enter in second", winComparation)
   }
 });
