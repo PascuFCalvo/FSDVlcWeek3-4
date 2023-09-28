@@ -5,7 +5,10 @@ let firstTry = document.getElementById("firstTry");
 let secondTry = document.getElementById("secondTry");
 let thirdTry = document.getElementById("thirdTry");
 let fourthTry = document.getElementById("fourthTry");
-let guesser = document.getElementById("guesser");
+let guesser1 = document.getElementById("guesser1");
+let guesser2 = document.getElementById("guesser2");
+let guesser3 = document.getElementById("guesser3");
+let guesser4 = document.getElementById("guesser4");
 let colors = ["red", "goldenrod", "purple"];
 let row = 1;
 let n = 1;
@@ -13,8 +16,11 @@ let winCondition = [];
 let winComparation = [];
 let winComparationGlobal = [];
 let guessResult = [];
-let winConditionButton = document.getElementsByClassName("win-condition-button");
+let winConditionButton = document.getElementsByClassName(
+  "win-condition-button"
+);
 let contador = 0;
+let guesserIndex = 0;
 
 //try to put icons in github
 
@@ -50,7 +56,6 @@ window.addEventListener("load", () => {
 });
 
 function paintWinConditionButtons() {
-  
   for (let i = 0; i < winConditionButton.length; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
@@ -61,17 +66,22 @@ const paintTry = () => {
 };
 
 function colorPickerClick(eventoClick) {
-  
-  if ((eventoClick.target.id == "red" || eventoClick.target.id == "goldenrod" | eventoClick.target.id == "purple") && contador < 3) {
-    
+  if (
+    (eventoClick.target.id == "red" ||
+      (eventoClick.target.id == "goldenrod") |
+        (eventoClick.target.id == "purple")) &&
+    contador < 3
+  ) {
     if (row === 1) {
       firstTry.children[contador].style.backgroundColor = eventoClick.target.id;
     } else if (row === 2) {
-      secondTry.children[contador].style.backgroundColor = eventoClick.target.id;
+      secondTry.children[contador].style.backgroundColor =
+        eventoClick.target.id;
     } else if (row === 3) {
       thirdTry.children[contador].style.backgroundColor = eventoClick.target.id;
     } else if (row === 4) {
-      fourthTry.children[contador].style.backgroundColor = eventoClick.target.id;
+      fourthTry.children[contador].style.backgroundColor =
+        eventoClick.target.id;
     }
     winComparation.push(eventoClick.target.id);
     contador++;
@@ -87,21 +97,39 @@ function comparation(array1, array2) {
     }
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
-  
-  guesser.innerHTML = newguessResult;
-  winComparationGlobal.push(newguessResult)
-  console.log("comparationglobal", winComparationGlobal);
-  console.log("comparationglobal", winComparationGlobal[n-1]);
-  
-  
-  
+  winComparationGlobal.push(newguessResult);
+  switch (guesserIndex) {
+    case 0:
+      guesser1.innerHTML = winComparationGlobal[0];
+
+      break;
+
+    case 1:
+      guesser2.innerHTML = winComparationGlobal[1];
+
+      break;
+
+    case 2:
+      guesser3.innerHTML = winComparationGlobal[2];
+
+      break;
+
+    case 3:
+      guesser4.innerHTML = winComparationGlobal[3];
+
+      break;
+  }
+
+
   if (!newguessResult.includes("⚫") && n <= 4) {
     alert("HAS GANAO!!!!");
   } else if (newguessResult.includes("⚫") && n >= 4) {
     alert("ERES UN LOOSER");
   }
-}
 
+  guesserIndex++;
+  console.log(guesserIndex)
+}
 
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
