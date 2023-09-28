@@ -72,14 +72,18 @@ function colorPickerClick(eventoClick) {
   ) {
     if (row === 1) {
       firstTry.children[contador].style.backgroundColor = eventoClick.target.id;
+      firstTry.children[contador].style.transition = "0.6s"
     } else if (row === 2) {
       secondTry.children[contador].style.backgroundColor =
         eventoClick.target.id;
+        firstTry.children[contador].style.transition = "0.6s"
     } else if (row === 3) {
       thirdTry.children[contador].style.backgroundColor = eventoClick.target.id;
+      firstTry.children[contador].style.transition = "0.6s"
     } else if (row === 4) {
       fourthTry.children[contador].style.backgroundColor =
         eventoClick.target.id;
+        firstTry.children[contador].style.transition = "0.6s"
     }
     winComparation.push(eventoClick.target.id);
     contador++;
@@ -90,14 +94,18 @@ function colorClear() {
   
     console.log("entra")
     if (row === 1) {
-      firstTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+      firstTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)";
+      firstTry.children[contador].style.transition = "0.6s";
     } else if (row === 2) {
-      secondTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+      secondTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)";
+      firstTry.children[contador].style.transition = "0.6s";
     } else if (row === 3) {
-      thirdTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+      thirdTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)";
+      firstTry.children[contador].style.transition = "0.6s";
     } else if (row === 4) {
       fourthTry.children[contador-1].style.backgroundColor =
-      "rgba(0,0,0,0)"
+      "rgba(0,0,0,0)";
+      firstTry.children[contador].style.transition = "0.6s";
     }
     
     if(contador>0){
