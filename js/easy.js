@@ -1,5 +1,6 @@
 let returnMain = document.getElementById("returnMain");
 let makeTry = document.getElementById("makeTry");
+let retTry = document.getElementById("retTry");
 let colorPicker = document.getElementById("colorPicker");
 let firstTry = document.getElementById("firstTry");
 let secondTry = document.getElementById("secondTry");
@@ -84,11 +85,37 @@ function colorPickerClick(eventoClick) {
     contador++;
   }
 }
+
+function colorClear() {
+  
+    console.log("entra")
+    if (row === 1) {
+      firstTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+    } else if (row === 2) {
+      secondTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+    } else if (row === 3) {
+      thirdTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)"
+    } else if (row === 4) {
+      fourthTry.children[contador-1].style.backgroundColor =
+      "rgba(0,0,0,0)"
+    }
+    
+    if(contador>0){
+      contador--;
+    }
+    
+  }
+
+
+
+
 function comparation(array1, array2) {
   for (let i = 0; i <= array1.length - 1; i++) {
     if (array1[i] === array2[i]) {
       guessResult.push("🟢");
-    } else {
+    }else if (array1[i] != array2[i] && array1.includes(array2[i])){
+      guessResult.push("🟡");
+    }else {
       guessResult.push("🔴");
     }
     var newguessResult = guessResult.toString().replace(/,/g, "");
@@ -116,24 +143,37 @@ function comparation(array1, array2) {
       break;
   }
 
-  if (newguessResult.includes("🔴")){
-    console.log("entra")
-    console.log(document.getElementById("main-container"))
+  if (newguessResult.includes("🟡")){
+    //to-do factorizar dentrod e una funcion
     document.getElementById("main-container").style.animation="shake 0.5s";
     setTimeout(()=>{
       document.getElementById("main-container").style.animation=""
     },501)
   }
   
-  if (!newguessResult.includes("🔴") && n <= 4) {
-    alert("HAS GANAO!!!!");
-  } else if (newguessResult.includes("🔴") && n >= 4) {
-    alert("ERES UN LOOSER");
+  if (!newguessResult.includes("🔴") && !newguessResult.includes("🟡") && n <= 4) {
+    
+    document.getElementById("main-container").style.animation="jump 1s";
+    document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉"
+    document.getElementById("hide-win-condition").style.display = "none"
+    
+  } else if (newguessResult.includes("🔴") || newguessResult.includes("🟡") && n >= 4) {
+    document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭"
+    document.getElementById("main-container").style.animation="drop 10s";
+    document.getElementById("hide-win-condition").style.display = "none"
   }
 
   guesserIndex++;
   
 }
+
+retTry.addEventListener("click",(e)=>{
+  if(e.target.id === "retTry"){
+    console.log(contador)
+    colorClear();
+  }
+})
+
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
     comparation(winCondition, winComparation);

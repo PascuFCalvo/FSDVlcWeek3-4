@@ -12,6 +12,7 @@ body{
 }
 
 .main-container{
+   position: relative;
    border-radius: 2em;
    display: flex;
    background: linear-gradient(0deg, rgba(34,134,195,0.2) 0%, rgba(121,253,45,0.2) 100%);
@@ -27,6 +28,31 @@ body{
 
   
 }
+@keyframes drop {
+   0% {
+     transform-origin: center;
+     opacity: 1;
+   }
+   20% {
+     transform: 
+       translate3d(0, 2000px, 0)
+       rotate3d(0, 0, 1, -10deg);
+     opacity: 1;
+   }
+   40%, 45% {
+     transform: 
+       translate3d(0, -2000px, 0)
+       rotate3d(0, 0, 1, 10deg);
+     opacity: 1;
+   }
+   to {
+     opacity: 1;
+     transform: 
+       translate3d(0, 1000px, 0)
+       rotate3d(0, 0, 0, 0deg);
+   }
+ }
+
 
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -55,6 +81,20 @@ body{
    
 }
 
+.hide-win-condition{
+   border-radius: 2em;
+   position:absolute;
+   background: linear-gradient(0deg, rgb(34, 133, 195) 0%, rgb(121, 253, 45) 100%);
+   -webkit-box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+   -moz-box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+   box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+   height: 4em;
+   width: 15em;
+   left: 3em;
+   top: 4.7em;
+}
+
+
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .container {
     -webkit-backdrop-filter: blur(10px);
@@ -64,11 +104,48 @@ body{
    
 }
 
+@keyframes jump  {
+   0%   { transform: scale(1,1)      translateY(0); }
+   10%  { transform: scale(1.1,.9)   translateY(0); }
+   30%  { transform: scale(.9,1.1)   translateY(-100px); }
+   50%  { transform: scale(1.05,.95) translateY(0); }
+   57%  { transform: scale(1,1)      translateY(-7px); }
+   64%  { transform: scale(1,1)      translateY(0); }
+   100% { transform: scale(1,1)      translateY(0); }
+}
+ 
+
 .color-try {
    display: flex;
    justify-content: space-evenly;
    margin: auto auto 0.5em auto
    
+}
+
+#makeTry{
+   cursor: pointer;
+   margin-left: 10px;
+   font-size: 40px;
+
+}
+#makeTry:active{
+   opacity: 0.5;
+   
+   
+
+}
+#retTry{
+   cursor: pointer;
+   margin-left: 23px;
+   font-size: 40px;
+}
+
+#retTry:active{
+   opacity: 0.5;
+   
+   
+   
+
 }
 
 
@@ -90,13 +167,11 @@ body{
 
 
 .return-to-main{
-   padding: 0.3 em;
-   text-align: center;
+   display: flex;
+   justify-content: center;
    color: rgb(48, 124, 4);
-   font-size: 25px;
-   font-weight: bolder;
    margin: auto ;
-   height: 1.5em;
+   height: 3em;
    width: 10em;
    border-radius: 1em;
    -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
