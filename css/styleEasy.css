@@ -14,15 +14,34 @@ body{
 .main-container{
    border-radius: 2em;
    display: flex;
-   background: rgb(34,134,195);
-   background: linear-gradient(0deg, rgba(121,253,45,0.4) 0%, rgba(34,134,195,0.6) 100%);
+   background: linear-gradient(0deg, rgba(34,134,195,0.2) 0%, rgba(121,253,45,0.2) 100%);
    width: 30em;
    height: 40em;
    text-align: center;
    flex-direction: column;
-   -webkit-box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
--moz-box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
-box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
+   -webkit-box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+   -moz-box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+   box-shadow: 0px 0px 100px 10px rgba(255,255,255,1);
+
+   
+
+  
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+
+   
 }
 .salutation{
    font-size: 1.5em;
@@ -61,9 +80,9 @@ box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
    height: 3em;
    width: 3em;
    border-radius: 20%;
-   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    
 
 }
@@ -80,10 +99,9 @@ box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
    height: 1.5em;
    width: 10em;
    border-radius: 1em;
-   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   background-color: rgba(255, 255, 255, 0.522);
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
 }
 
 .return-to-main:hover{
@@ -114,9 +132,9 @@ box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
    width: 6em;
    height: 2em;
    background-color: rgba(250, 235, 215, 0.505);
-   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
-   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    
 }
 

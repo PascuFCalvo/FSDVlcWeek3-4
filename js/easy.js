@@ -10,6 +10,7 @@ let guesser2 = document.getElementById("guesser2");
 let guesser3 = document.getElementById("guesser3");
 let guesser4 = document.getElementById("guesser4");
 
+
 let colors = ["red", "goldenrod", "purple"];
 let row = 1;
 let n = 1;
@@ -115,6 +116,15 @@ function comparation(array1, array2) {
       break;
   }
 
+  if (newguessResult.includes("🔴")){
+    console.log("entra")
+    console.log(document.getElementById("main-container"))
+    document.getElementById("main-container").style.animation="shake 0.5s";
+    setTimeout(()=>{
+      document.getElementById("main-container").style.animation=""
+    },501)
+  }
+  
   if (!newguessResult.includes("🔴") && n <= 4) {
     alert("HAS GANAO!!!!");
   } else if (newguessResult.includes("🔴") && n >= 4) {
@@ -122,7 +132,7 @@ function comparation(array1, array2) {
   }
 
   guesserIndex++;
-  console.log(guesserIndex);
+  
 }
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
