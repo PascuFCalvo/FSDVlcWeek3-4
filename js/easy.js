@@ -7,7 +7,7 @@ let thirdTry = document.getElementById("thirdTry");
 let fourthTry = document.getElementById("fourthTry");
 let guesser = document.getElementById("guesser");
 let colors = ["red", "goldenrod", "purple"];
-let fila = 1;
+let row = 1;
 let n = 1;
 let winCondition = [];
 let winComparation = [];
@@ -43,28 +43,31 @@ function shuffle(WinCondition) {
 window.addEventListener("load", () => {
   winCondition = shuffle(colors);
   paintWinConditionButtons();
-  paintTry(fila);
+  paintTry(row);
 });
 
 function paintWinConditionButtons() {
+  
   for (let i = 0; i < winConditionButton.length; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
 }
 
 const paintTry = () => {
-  colorPicker.addEventListener("click", colorPickerClickHandler);
+  colorPicker.addEventListener("click", colorPickerClick);
 };
 
-function colorPickerClickHandler(eventoClick) {
-  if (eventoClick.target.id && contador < 3) {
-    if (fila === 1) {
+function colorPickerClick(eventoClick) {
+  console.log("click")
+  if ((eventoClick.target.id == "red" || eventoClick.target.id == "goldenrod" | eventoClick.target.id == "purple") && contador < 3) {
+    console.log(eventoClick.target.id)
+    if (row === 1) {
       firstTry.children[contador].style.backgroundColor = eventoClick.target.id;
-    } else if (fila === 2) {
+    } else if (row === 2) {
       secondTry.children[contador].style.backgroundColor = eventoClick.target.id;
-    } else if (fila === 3) {
+    } else if (row === 3) {
       thirdTry.children[contador].style.backgroundColor = eventoClick.target.id;
-    } else if (fila === 4) {
+    } else if (row === 4) {
       fourthTry.children[contador].style.backgroundColor = eventoClick.target.id;
     }
     winComparation.push(eventoClick.target.id);
@@ -96,10 +99,10 @@ makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
     comparation(winCondition, winComparation);
     guessResult = [];
-    fila++;
+    row++;
     n++;
     contador = 0;
     winComparation = [];
-    paintTry(fila);
+    paintTry(row);
   }
 });
