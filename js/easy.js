@@ -15,6 +15,8 @@ let guessResult = [];
 let winConditionButton = document.getElementsByClassName("win-condition-button");
 let contador = 0;
 
+//try to put icons in github
+
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     console.log("hola");
