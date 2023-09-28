@@ -11,6 +11,7 @@ let row = 1;
 let n = 1;
 let winCondition = [];
 let winComparation = [];
+let winComparationGlobal = [];
 let guessResult = [];
 let winConditionButton = document.getElementsByClassName("win-condition-button");
 let contador = 0;
@@ -85,10 +86,15 @@ function comparation(array1, array2) {
       guessResult.push("⚫");
     }
     var newguessResult = guessResult.toString().replace(/,/g, "");
-
-    guesser.innerText = newguessResult;
   }
-
+  
+  guesser.innerHTML = newguessResult;
+  winComparationGlobal.push(newguessResult)
+  console.log("comparationglobal", winComparationGlobal);
+  console.log("comparationglobal", winComparationGlobal[n-1]);
+  
+  
+  
   if (!newguessResult.includes("⚫") && n < 4) {
     alert("HAS GANAO!!!!");
   } else if (newguessResult.includes("⚫") && n >= 4) {
