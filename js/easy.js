@@ -9,6 +9,7 @@ let guesser1 = document.getElementById("guesser1");
 let guesser2 = document.getElementById("guesser2");
 let guesser3 = document.getElementById("guesser3");
 let guesser4 = document.getElementById("guesser4");
+
 let colors = ["red", "goldenrod", "purple"];
 let row = 1;
 let n = 1;
@@ -21,8 +22,6 @@ let winConditionButton = document.getElementsByClassName(
 );
 let contador = 0;
 let guesserIndex = 0;
-
-//try to put icons in github
 
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
@@ -53,18 +52,15 @@ window.addEventListener("load", () => {
   winCondition = shuffle(colors);
   paintWinConditionButtons();
   paintTry(row);
-});
-
+  });
 function paintWinConditionButtons() {
   for (let i = 0; i < winConditionButton.length; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
 }
-
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
 };
-
 function colorPickerClick(eventoClick) {
   if (
     (eventoClick.target.id == "red" ||
@@ -87,7 +83,6 @@ function colorPickerClick(eventoClick) {
     contador++;
   }
 }
-
 function comparation(array1, array2) {
   for (let i = 0; i <= array1.length - 1; i++) {
     if (array1[i] === array2[i]) {
@@ -120,7 +115,6 @@ function comparation(array1, array2) {
       break;
   }
 
-
   if (!newguessResult.includes("⚫") && n <= 4) {
     alert("HAS GANAO!!!!");
   } else if (newguessResult.includes("⚫") && n >= 4) {
@@ -128,9 +122,8 @@ function comparation(array1, array2) {
   }
 
   guesserIndex++;
-  console.log(guesserIndex)
+  console.log(guesserIndex);
 }
-
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
     comparation(winCondition, winComparation);
