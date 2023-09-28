@@ -61,9 +61,9 @@ const paintTry = () => {
 };
 
 function colorPickerClick(eventoClick) {
-  console.log("click")
+  
   if ((eventoClick.target.id == "red" || eventoClick.target.id == "goldenrod" | eventoClick.target.id == "purple") && contador < 3) {
-    console.log(eventoClick.target.id)
+    
     if (row === 1) {
       firstTry.children[contador].style.backgroundColor = eventoClick.target.id;
     } else if (row === 2) {
@@ -95,7 +95,7 @@ function comparation(array1, array2) {
   
   
   
-  if (!newguessResult.includes("⚫") && n < 4) {
+  if (!newguessResult.includes("⚫") && n <= 4) {
     alert("HAS GANAO!!!!");
   } else if (newguessResult.includes("⚫") && n >= 4) {
     alert("ERES UN LOOSER");
