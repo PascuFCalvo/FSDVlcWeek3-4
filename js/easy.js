@@ -86,9 +86,9 @@ function colorPickerClick(eventoClick) {
 function comparation(array1, array2) {
   for (let i = 0; i <= array1.length - 1; i++) {
     if (array1[i] === array2[i]) {
-      guessResult.push("⚪");
+      guessResult.push("🟢");
     } else {
-      guessResult.push("⚫");
+      guessResult.push("🔴");
     }
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
@@ -115,9 +115,9 @@ function comparation(array1, array2) {
       break;
   }
 
-  if (!newguessResult.includes("⚫") && n <= 4) {
+  if (!newguessResult.includes("🔴") && n <= 4) {
     alert("HAS GANAO!!!!");
-  } else if (newguessResult.includes("⚫") && n >= 4) {
+  } else if (newguessResult.includes("🔴") && n >= 4) {
     alert("ERES UN LOOSER");
   }
 

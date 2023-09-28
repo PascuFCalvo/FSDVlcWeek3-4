@@ -1,4 +1,5 @@
 body{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    width: 100vw;
    height: 100vh;
    margin: 0;
@@ -6,15 +7,22 @@ body{
    display: flex;
    justify-content: center;
    align-items: center;
+   background: rgb(34,134,195);
+   background: linear-gradient(0deg, rgba(34,134,195,0.7) 0%, rgba(121,253,45,0.7) 100%);
 }
 
 .main-container{
+   border-radius: 2em;
    display: flex;
-   background-color: grey;
+   background: rgb(34,134,195);
+   background: linear-gradient(0deg, rgba(121,253,45,0.4) 0%, rgba(34,134,195,0.6) 100%);
    width: 30em;
    height: 40em;
    text-align: center;
    flex-direction: column;
+   -webkit-box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
+-moz-box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
+box-shadow: 0px 0px 107px 4px rgba(255,255,255,1);
 }
 .salutation{
    font-size: 1.5em;
@@ -24,7 +32,16 @@ body{
 .color-picker{
    display: flex;
    justify-content: space-evenly;
-   margin: auto auto 0.5em auto
+   margin: auto auto 0.5em auto;
+   
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .container {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+   
    
 }
 
@@ -38,21 +55,35 @@ body{
 
 
 .color-button{
+
+
    margin: 0 1em;
    height: 3em;
    width: 3em;
    border-radius: 20%;
-   border: solid 2px whitesmoke;
+   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
    
+
 }
 
+
+
 .return-to-main{
-   margin: 1em auto ;
-   height: 2em;
+   padding: 0.3 em;
+   text-align: center;
+   color: rgb(48, 124, 4);
+   font-size: 25px;
+   font-weight: bolder;
+   margin: auto ;
+   height: 1.5em;
    width: 10em;
-   background-color: green;
-   border-radius: 0.5em;
-   border: solid 2px whitesmoke;
+   border-radius: 1em;
+   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   background-color: rgba(255, 255, 255, 0.522);
 }
 
 .return-to-main:hover{
@@ -70,31 +101,41 @@ body{
 .color-button:active{
    opacity: 1;
 }
+.guesser-hidden{
+   margin-left: 3em; 
+}
 
 .guesser{
+   margin-left: 3em;
+   border-radius: 2em;
    justify-content: center;
    text-align: center;
    margin-top: 10px;
    width: 6em;
    height: 2em;
-   background-color: green;
+   background-color: rgba(250, 235, 215, 0.505);
+   -webkit-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   -moz-box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   box-shadow: 0px 0px 25px 1px rgba(255,255,255,1);
+   
 }
+
 .guesser-hidden{
    margin-top: 1.2em;
    width: 6em;
    height: 1em;
-   background-color: grey;
+   background-color: rgba(128, 128, 128, 0);
 }
 
 
 #red {
-   background-color: red;
+   background-color: rgba(255, 0, 0);
 }
 
 #goldenrod{
-   background-color: goldenrod;
+   background-color: rgba(218, 165, 32);
 }
 #purple{
-   background-color: purple;
+   background-color: rgba(128, 0, 128);
 }
 
