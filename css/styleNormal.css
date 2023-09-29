@@ -80,7 +80,6 @@ body{
 }
 
 .hide-win-condition{
-   display: none;
    border-radius: 2em;
    position:absolute;
    background-color: #d3d3d3;
