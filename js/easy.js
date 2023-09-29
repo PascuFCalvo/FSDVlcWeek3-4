@@ -25,13 +25,13 @@ let winConditionButton = document.getElementsByClassName(
 let contador = 0;
 let guesserIndex = 0;
 
+//funcion que hace que el boton retunr, te duvuelva al main
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     console.log("hola");
     window.open("../index.html", "_self");
-  }
-});
-//genera el random
+  }});
+//esta funcion coge el array wincondition y lo mezcla asignandole indices random
 function shuffle(WinCondition) {
   let currentIndex = WinCondition.length,
     randomIndex;
@@ -49,20 +49,35 @@ function shuffle(WinCondition) {
 
   return WinCondition;
 }
-//genera el array de winCondition al arrancar
+//evento que se hace al cargar la pagina (llama a 3 funciones)
+  //1-genera el array winCondition (no confundir con el parametro winCondition de la funcion Shuffle)
+  //2-llama a la funcion que pinta la combinacion de colores(paintWinConditionButtons)
+  //3-inicia la funcion que te permite jugar (paintTry)
 window.addEventListener("load", () => {
   winCondition = shuffle(colors);
   paintWinConditionButtons();
   paintTry(row);
   });
+
+//coge todos los elementos con la clase winConditionButton y los va itreando para darles el color de la posicion que se ha generado en winCondition
 function paintWinConditionButtons() {
   for (let i = 0; i < winConditionButton.length; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
 }
+//funcion que simplemente va a recibir como argumento que cuando haces click, lance la funcion colorpickerCkick
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
 };
+
+//funcion principal
+  // funciona cada vez que haces click, por la funcion de arriba
+  //si haces click (eventoClick) en cualquier sitio de la pantalla y la id de ese sitio coincide con alguna de las que le pasas como parametro...
+
+  //coge la  fila o intento (firstTry)y le va asigando a sus elemntos hijos por orden (tiene 3 childs) el id que en este caso es el color.
+
+  //le pongo un contador para asegurar que solo pinta como mucho 3 cuadros (y no me pinte otros elementos que pueda añadir despues)
+
 function colorPickerClick(eventoClick) {
   if (
     (eventoClick.target.id == "red" ||
@@ -90,6 +105,9 @@ function colorPickerClick(eventoClick) {
   }
 }
 
+//esta hace lo mismo que la de arriba pero en vez de pintar limpia a transparente para "borrar"
+//y como esta asignada al boton retroceder el contador se reduce para ir par aatras
+
 function colorClear() {
   
     console.log("entra")
@@ -114,8 +132,15 @@ function colorClear() {
     
   }
 
+//esta funcion compara 2 arrays para ir generando el comprobador de bolitas de colores 
+//en cada jugada genera un array de 3 bolitas
+//y conforme vas avanzando en el juego va generando un array de arrays de 3 bolitas
+//y va aumentando el indice guesserIndex
 
-
+//si no aciertas vibra
+//si ganas da un saltito
+//si pierdes se cae
+//y cuando terminas desaparece el div que tapa la solucion
 
 function comparation(array1, array2) {
   for (let i = 0; i <= array1.length - 1; i++) {
@@ -175,12 +200,23 @@ function comparation(array1, array2) {
   
 }
 
+//este evento le dice al voton de la flechita para atras que borre llamando a color clear
+
 retTry.addEventListener("click",(e)=>{
   if(e.target.id === "retTry"){
     console.log(contador)
     colorClear();
   }
 })
+
+//este evento le dice al boton de check varias cosas
+//resetea guessResult a vacio para que no se genere un array de bolitas infinito
+//incrementa la fila donde estas jugando en 1
+//incrementa el contador n en 1 (esto creo que no vale para nada, pero ya lo comprobare)
+//resetea el contaodor...contador a 0
+//reseta la winComparation a [] para no hacer un array infinito
+//y vuelve a llamar a la funcion de jugar PointTry, que recibe como argumento la fila en la que 
+//esta y asi poder ir subiendo
 
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
