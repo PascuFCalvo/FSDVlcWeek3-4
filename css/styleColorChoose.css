@@ -1,0 +1,89 @@
+/* <!-- 
+   combinacion1: #1B676B #519548 #88C425 #BEF202 #EAFDE6 #D9CEB2
+   combinacion2: #F04155 #FF823A #F2F26F #FFF7BD #95CFB7 #F0E2A4
+   combinacion3: #FF9900 #424242 #E9E9E9 #BCBCBC #3299BB #604848
+   combinacion4: #B3CC57 #ECF081 #FFBE40 #EF746F #AB3E5B #7CCCE5
+
+ --> */
+
+
+
+
+body{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   width: 100vw;
+   height: 100vw;
+   margin: 0;
+   padding: 0;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   background-color: #d3d3d3;
+   background-image: linear-gradient(315deg, #d3d3d3 0%, #57606f 74%);
+
+
+
+}
+
+.main-container{
+   border-radius: 20px;
+   width: 30em;
+   height: 30em;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
+}
+
+.main-container p{
+   font-size:30px;
+}
+
+.color-row{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 2px;
+   width: 25em;
+   height: 5em;
+   border: solid 2px rgb(255, 0, 0)
+
+}
+
+.color-pick-element{
+   
+   width: 4.2em;
+   height: 4.2em;
+   border: solid 1px green ;
+}
+
+.color-row1{
+   border-radius: 10px;
+      margin-bottom: 10px;
+      width: 25em;
+      height: 5em;
+      background: linear-gradient(90deg, #1B676B 0%, #519548 20%, #88C425  40%, #BEF202 60%, #EAFDE6 80%, #D9CEB2 100%);
+  }
+  .color-row2{
+   border-radius: 10px;
+   margin-bottom: 10px;
+   width: 25em;
+   height: 5em;
+   background: linear-gradient(90deg, #F04155  0%, #FF823A 20%, #F2F26F  40%, #FFF7BD 60%, #EAFDE6 80%, #F0E2A4 100%);
+}
+
+.color-row3{
+   border-radius: 10px;
+   margin-bottom: 10px;
+   width: 25em;
+   height: 5em;
+   background: linear-gradient(90deg, #FF9900  0%, #424242 20%, #E9E9E9  40%, #BCBCBC 60%, #3299BB 80%, #604848 100%);
+}
+.color-row4{
+   border-radius: 10px;
+   margin-bottom: 10px;
+   width: 25em;
+   height: 5em;
+   background: linear-gradient(90deg, #B3CC57  0%, #ECF081 20%, #FFBE40   40%, #EF746F 60%, #AB3E5B 80%, #7CCCE5 100%);
+}

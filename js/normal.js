@@ -14,8 +14,7 @@ let guesser3 = document.getElementById("guesser3");
 let guesser4 = document.getElementById("guesser4");
 let guesser5 = document.getElementById("guesser5");
 let guesser6 = document.getElementById("guesser6");
-
-let colors = ["red", "goldenrod", "purple", "pink", "lightseagreen", "green"];
+let cuadroscolores = document.getElementsByClassName("color-cl");
 let row = 1;
 let n = 1;
 let winCondition = [];
@@ -28,6 +27,18 @@ let winConditionButton = document.getElementsByClassName(
 let contador = 0;
 let guesserIndex = 0;
 
+let colors = localStorage.getItem("colores")
+let colors2 = colors.split(",")
+
+
+let colors3 = colors2;
+
+for (let i = 0; i<colors2.length; i++){
+  cuadroscolores[i].style.backgroundColor = colors2[i];
+  cuadroscolores[i].setAttribute("id",colors2[i])
+}
+
+
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     console.log("hola");
@@ -35,8 +46,8 @@ returnMain = addEventListener("click", (e) => {
   }
 });
 //genera el random
-function shuffle(WinCondition) {
-  let currentIndex = WinCondition.length,
+function shuffle(remix) {
+  let currentIndex = remix.length,
     randomIndex;
   //mientras quedan elementos restantes
   while (currentIndex > 0) {
@@ -44,36 +55,40 @@ function shuffle(WinCondition) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
     //y los mezclas
-    [WinCondition[currentIndex], WinCondition[randomIndex]] = [
-      WinCondition[randomIndex],
-      WinCondition[currentIndex],
+    [remix[currentIndex], remix[randomIndex]] = [
+      remix[randomIndex],
+      remix[currentIndex],
     ];
   }
-
-  return WinCondition;
+  console.log("remix",remix)
+  return remix;
 }
-//genera el array de winCondition al arrancar
+
 window.addEventListener("load", () => {
-  winCondition = shuffle(colors);
+  winCondition = shuffle(colors2);
+  
+  console.log("wincondition",winCondition)
+  console.log("colors",colors2)
   paintWinConditionButtons();
   paintTry(row);
 });
 function paintWinConditionButtons() {
-  for (let i = 0; i < winConditionButton.length; i++) {
+  for (let i = 0; i < 4; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
+
 }
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
 };
 function colorPickerClick(eventoClick) {
   if (
-    eventoClick.target.id == "pink" ||
-    ((eventoClick.target.id == "lightseagreen" ||
-      eventoClick.target.id == "red" ||
-      eventoClick.target.id == "goldenrod" ||
-      eventoClick.target.id == "purple" ||
-      eventoClick.target.id == "green") &&
+    eventoClick.target.id == colors2[0] ||
+    ((eventoClick.target.id == colors2[1] ||
+      eventoClick.target.id == colors2[2] ||
+      eventoClick.target.id == colors2[3] ||
+      eventoClick.target.id == colors2[4] ||
+      eventoClick.target.id == colors2[5]) &&
       contador < 4)
   ) {
     if (row === 1) {

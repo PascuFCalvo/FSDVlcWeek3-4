@@ -7,8 +7,9 @@ body{
    display: flex;
    justify-content: center;
    align-items: center;
-   background-image: radial-gradient(circle, #052e37, #005d60, #008f6c, #1fc057, #a8eb12);
-   
+   background-color: #d3d3d3;
+   background-image: linear-gradient(315deg, #d3d3d3 0%, #57606f 74%);
+      
 }
 
 .main-container{
@@ -79,9 +80,11 @@ body{
 }
 
 .hide-win-condition{
+   display: none;
    border-radius: 2em;
    position:absolute;
-   background: linear-gradient(0deg, rgb(34, 133, 195) 0%, rgb(121, 253, 45) 100%);
+   background-color: #d3d3d3;
+   background-image: linear-gradient(315deg, #d3d3d3 0%, #57606f 74%);
    -webkit-box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.463);
    -moz-box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.462);
    box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.452);
@@ -172,7 +175,7 @@ body{
 .return-to-main{
    display: flex;
    justify-content: center;
-   color: #005d60;
+   color: #000000;
    margin: auto ;
    height: 3em;
    width: 10em;
@@ -202,6 +205,7 @@ body{
 }
 
 .guesser{
+   display: ;
    margin-left: 3em;
    border-radius: 2em;
    justify-content: center;
@@ -220,29 +224,10 @@ body{
    margin-top: 1.2em;
    width: 6em;
    height: 1em;
-   background-color: rgba(128, 128, 128, 0);
+   background-color: rgba(0, 0, 0, 0);
 }
 
 
-#red {
-   background-color: rgba(255, 0, 0);
+.color-cl{
+  background-color: transparent
 }
-
-#goldenrod{
-   background-color: rgba(218, 165, 32);
-}
-#purple{
-   background-color: rgba(128, 0, 128);
-}
-
-#green {
-   background-color: green;
-}
-
-#pink{
-   background-color: pink;
-}
-#blue{
-   background-color: lightseagreen;
-}
-

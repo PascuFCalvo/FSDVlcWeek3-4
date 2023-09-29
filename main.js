@@ -12,7 +12,7 @@ easy = addEventListener("click",(e)=>{
 easy = addEventListener("click",(e)=>{
    if (e.target.id === "normalButton"){
       console.log("hola");
-      window.open("./html/normal.html","_self");
+      window.open("./html/colors.html","_self");
    }
 
 })
