@@ -60,15 +60,16 @@ function shuffle(remix) {
       remix[currentIndex],
     ];
   }
-  console.log("remix",remix)
+  
   return remix;
 }
 
 window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
+  winCondition = shuffle(colors2).slice(0,-2)
   
   console.log("wincondition",winCondition)
-  console.log("colors",colors2)
+  
   paintWinConditionButtons();
   paintTry(row);
 });
@@ -115,12 +116,13 @@ function colorPickerClick(eventoClick) {
       firstTry.children[contador].style.transition = "0.6s";
     }
     winComparation.push(eventoClick.target.id);
+    
     contador++;
   }
 }
 
+
 function colorClear() {
-  console.log("entra");
   if (row === 1) {
     firstTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
     firstTry.children[contador].style.transition = "0.6s";
@@ -147,14 +149,18 @@ function colorClear() {
 }
 
 function comparation(array1, array2) {
-  for (let i = 0; i <= array1.length - 3; i++) {
-    if (array1[i] === array2[i]) {
-      guessResult.push("🟢");
-    } else if (array1[i] != array2[i] && array1.includes(array2[i])) {
+  console.log(winComparation[0])
+  console.log(winCondition[0])
+  for (let i = 0; i < array1.length ; i++) {
+   if (array1[i]==array2[i]){
+        guessResult.push("🟢");
+  
+    }else if(array1[i] != array2[i] && array1.includes(array2[i])){
       guessResult.push("🟡");
-    } else if (array1[i] != array2[i] && !array1.includes(array2[i])) {
-      guessResult.push("🔴");
+    }else if(array1[i]!=array2[i]){
+        guessResult.push("🔴");
     }
+    
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
   winComparationGlobal.push(newguessResult);
@@ -205,11 +211,10 @@ function comparation(array1, array2) {
     document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉";
     document.getElementById("hide-win-condition").style.display = "none";
   } else if (
-    newguessResult.includes("🔴") ||
-    (newguessResult.includes("🟡") && n >= 6)
-  ) {
+    (newguessResult.includes("🔴") || newguessResult.includes("🟡")) && n >= 6)
+   {
     document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭";
-    document.getElementById("main-container").style.animation = "drop 10s";
+    document.getElementById("main-container").style.animation = "drop 5s";
     document.getElementById("hide-win-condition").style.display = "none";
   }
 

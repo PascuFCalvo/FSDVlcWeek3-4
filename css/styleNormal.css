@@ -37,7 +37,7 @@ body{
        rotate3d(0, 0, 1, -10deg);
      opacity: 1;
    }
-   40%, 45% {
+   /* 40%, 45% {
      transform: 
        translate3d(0, -2000px, 0)
        rotate3d(0, 0, 1, 10deg);
@@ -48,7 +48,7 @@ body{
      transform: 
        translate3d(0, 1000px, 0)
        rotate3d(0, 0, 0, 0deg);
-   }
+   } */
  }
 
 
@@ -205,7 +205,7 @@ body{
 }
 
 .guesser{
-   display: ;
+   
    margin-left: 3em;
    border-radius: 2em;
    justify-content: center;
