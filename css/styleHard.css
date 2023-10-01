@@ -76,7 +76,7 @@ body{
 .color-picker{
    display: flex;
    justify-content: space-evenly;
-   margin: auto auto 0.5em auto;
+   margin: auto auto 0.5em 0.1em;
    
 }
 
@@ -96,16 +96,22 @@ body{
 }
 
 .warriorHealth{
+   border: solid 2px whitesmoke;
+   border-radius: 4px;
    width: 12em;
    height: 0.5em;
-   background-color:darkred;
-   margin-left: 5em;
+   background: rgb(255,0,0);
+background: linear-gradient(90deg, rgba(255,0,0,1) 37%, rgb(48, 0, 0) 100%);
+   margin-left: 4em;
 }
 
 .nitoHealth{
+   border: solid 2px whitesmoke;
+   border-radius: 4px;
    width: 12em;
    height: 0.5em;
-   background-color:darkred;
+   background: rgb(255,0,0);
+background: linear-gradient(90deg, rgba(255,0,0,1) 37%, rgba(48,0,0) 100%);
    margin-left: 12em;
    margin-bottom: 44px;
 }
@@ -113,7 +119,7 @@ body{
 .youDied{
    position: absolute;
    top:18em;
-   width: 30em;
+   width: 31em;
    height: 10em;
    background-image: url("../resources/youDied.jpg");
    object-fit: contain;
@@ -133,9 +139,9 @@ body{
    box-shadow: 0px 0px 100px 10px #DB2E00;
    height: 4em;
    width: 20em;
-   left: 0.8em;
+   left: 0em;
    top: 4.4em;
-   display: none;
+   
 }
 
 
@@ -162,7 +168,7 @@ body{
 .color-try {
    display: flex;
    justify-content: space-evenly;
-   margin: auto auto 0.5em auto
+   margin: auto auto 0.5em 0.1em
    
 }
 

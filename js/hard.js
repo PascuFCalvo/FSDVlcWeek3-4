@@ -155,6 +155,8 @@ function comparation(array1, array2) {
   console.log(winComparation[0])
   console.log(winCondition[0])
   for (let i = 0; i < array1.length ; i++) {
+
+
    if (array1[i]==array2[i]){
         guessResult.push("⚔️");
         warriorAttack();
@@ -163,10 +165,8 @@ function comparation(array1, array2) {
          setTimeout(() => {
          nitoRegeneration()
          
-        }, 500);}
+        }, 1000);}
         
-        
-  
     }else if(array1[i] != array2[i] && array1.includes(array2[i])){
       guessResult.push("❤️‍🔥");
       heal()
@@ -201,7 +201,9 @@ function comparation(array1, array2) {
   }
 
   if(healthWidth <= 0){
+   document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
    youDied()
+   
 }
 
   if (newguessResult.includes("✖️")) {
@@ -258,6 +260,7 @@ makeTry.addEventListener("click", (e) => {
 function youDied(){
    document.getElementById("youDied").style.opacity = "1"
    document.getElementById("youDied").style.opacity = "2"
+   
    document.getElementById("youDied").style.transition = "all 5s";
    document.getElementById("hide-win-condition").style.display = "none";
    e.stopPropagation ();
@@ -266,7 +269,7 @@ function youDied(){
 function lowOpacity(){
    console.log ("entra")
    boxRows[invertRowCounter].style.opacity = "0.1";
-   boxRows[invertRowCounter].style.transition = "all 2000s";      
+   boxRows[invertRowCounter].style.transition = "all 30s";      
 }
 
 function warriorAttack(){
@@ -284,6 +287,8 @@ function nitoAttack(){
    }, 300);
    boxRows[invertRowCounter].style.transition = "all 2s";   
 }
+
+
 
 function nitoRegeneration(){
    healthNitoWidth = 12;
