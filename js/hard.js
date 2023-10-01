@@ -31,7 +31,7 @@ let winConditionButton = document.getElementsByClassName(
 let contador = 0;
 let guesserIndex = 0;
 
-let colors = "#FD961C,#E36919,#F95D28,#E32E19,#FD1C3C,#ff0000"
+let colors = "#bf8c00,#b45f06,#b43d06,#a80707,#990000,#810000"
 let colors2 = colors.split(",")
 
 
@@ -165,11 +165,7 @@ function comparation(array1, array2) {
         guessResult.push("⚔️");
         warriorAttack();
         reduceHealthBarNito();
-        if(healthNitoWidth > 0){
-         setTimeout(() => {
-         nitoRegeneration()
-         
-        }, 1000);}
+        
         
     }else if(array1[i] != array2[i] && array1.includes(array2[i])){
       guessResult.push("❤️‍🔥");
@@ -210,8 +206,8 @@ function comparation(array1, array2) {
    
 }
 
-  if (newguessResult.includes("✖️")) {
-    //to-do factorizar dentrod e una funcion
+  if (newguessResult.includes("❤️‍🔥")) {
+    
     document.getElementById("main-container").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container").style.animation = "";
@@ -226,7 +222,21 @@ function comparation(array1, array2) {
     document.getElementById("main-container").style.animation = "jump 1s";
     document.getElementById("salutation").innerText = "⚔️⚔️YOU WIN⚔️⚔️";
     document.getElementById("hide-win-condition").style.display = "none";
-  } else if (
+    healthNitoWidth = 0;
+    reduceHealthBarNito()
+    document.getElementById("main-container-nito").style.opacity = 0;
+    document.getElementById("main-container-nito").style.transition = "all 5s"
+
+  }else if(!newguessResult.includes("☠️") ||
+  !newguessResult.includes("❤️‍🔥")){
+   
+      setTimeout(() => {
+      nitoRegeneration()
+      
+     }, 1000);
+  } 
+  
+  else if (
     (newguessResult.includes("☠️") || newguessResult.includes("❤️‍🔥")) && n >= 6)
    {
       document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
@@ -301,7 +311,7 @@ function nitoAttack(){
 function nitoRegeneration(){
    healthNitoWidth = 12;
    document.getElementById("nitoHealth").style.width = "12em"
-   document.getElementById("nitoHealth").style.transition = "all 2s"
+   document.getElementById("nitoHealth").style.transition = "all 4s"
 }
 
 function heal(){
