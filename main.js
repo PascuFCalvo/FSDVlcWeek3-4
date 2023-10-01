@@ -4,7 +4,7 @@ let hard = document.getElementById("hardButton");
 let userName = document.getElementById('userName')
 
 userName.addEventListener('input', () => {	
-	console.log(userName.value);
+	
    let userNamePicked = userName.value;
    localStorage.setItem ("userName", userNamePicked)
 })

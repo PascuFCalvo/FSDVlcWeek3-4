@@ -73,6 +73,7 @@ window.addEventListener("load", () => {
   paintWinConditionButtons();
   paintTry(row);
 });
+
 function paintWinConditionButtons() {
   for (let i = 0; i < 4; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];

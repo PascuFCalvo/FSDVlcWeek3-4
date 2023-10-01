@@ -31,7 +31,7 @@ let winConditionButton = document.getElementsByClassName(
 let contador = 0;
 let guesserIndex = 0;
 
-let colors = "#bf8c00,#b45f06,#b43d06,#a80707,#990000,#810000"
+let colors = "#bf8c00,#b45f06,#b43d06,#a80707,#310b0b,#282828"
 let colors2 = colors.split(",")
 
 
