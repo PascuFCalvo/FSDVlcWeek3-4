@@ -1,6 +1,14 @@
 let easy = document.getElementById("easyButton");
 let normal = document.getElementById("normalButton");
 let hard = document.getElementById("hardButton");
+let userName = document.getElementById('userName')
+
+userName.addEventListener('input', () => {	
+	console.log(userName.value);
+   let userNamePicked = userName.value;
+   localStorage.setItem ("userName", userNamePicked)
+})
+
 
 easy = addEventListener("click",(e)=>{
    if (e.target.id === "easyButton"){

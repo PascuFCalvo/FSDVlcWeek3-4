@@ -37,6 +37,10 @@ let colors2 = colors.split(",")
 
 let colors3 = colors2;
 
+let userName = localStorage.getItem("userName")
+document.getElementById("playerName").innerText = userName;
+
+
 for (let i = 0; i<colors2.length; i++){
   cuadroscolores[i].style.backgroundColor = colors2[i];
   cuadroscolores[i].setAttribute("id",colors2[i])
@@ -274,10 +278,14 @@ function lowOpacity(){
 
 function warriorAttack(){
    document.getElementById("main-container-warrior").style.marginRight = "-550px";
+   document.getElementById("main-container-nito").style.animation = "shake 1s";
+   
+
    setTimeout(() => {
       document.getElementById("main-container-warrior").style.marginRight = "";
    }, 300);
    boxRows[invertRowCounter].style.transition = "all 2s";   
+   
 }
 
 function nitoAttack(){
