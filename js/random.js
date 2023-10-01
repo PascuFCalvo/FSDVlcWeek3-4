@@ -6,41 +6,45 @@ let cuadroscolores = document.getElementsByClassName("color-cl");
 let row = 1;
 let n = 1;
 let winCondition = [];
+let winCondition2 = [];
 let winComparation = [];
 let winComparationGlobal = [];
 let guessResult = [];
-let winConditionButton = document.getElementsByClassName(
-  "win-condition-button"
-);
 let generateArrayColors = [];
 let contador = 0;
 let guesserIndex = 0;
 let colors = [
-  "#FF0000",
-  "#00FF00",
-  "#0000FF",
-  "#FFFF00",
-  "#FF00FF",
-  "#00FFFF",
-  "#FFA500",
-  "#800080",
-  "#008000",
-  "#800000",
-  "#808080",
-  "#C0C0C0",
-  "#808000",
-  "#008080",
-  "#FF4500",
-  "#FFD700",
-  "#8B0000",
-  "#008000",
-  "#6A5ACD",
-  "#FF69B4",
-];
+   "Red", "Orange", "Yellow", "Green", "Blue",
+   "Purple", "Pink", "Brown", "Cyan", "Magenta",
+   "Lavender", "Teal", "Olive", "Maroon", "Navy",
+   "Turquoise", "SlateGray", "Violet", "Indigo", "Gold", 
+   "Silver", "Gray"
+ ];
+let colorPickerClass = document.getElementsByClassName("color-picker")
+let colorButtons = document.getElementsByClassName("color-button")
 let inputnumbers = document.getElementById("inputnumbers");
 let inputrows = document.getElementById("inputrows");
 let buttonSend = document.getElementById("buttonSend");
 let colorsToPlay = [];
+
+
+function shuffle(remix) {
+   let currentIndex = remix.length,
+     randomIndex;
+   //mientras quedan elementos restantes
+   while (currentIndex > 0) {
+     //eliges un elemento
+     randomIndex = Math.floor(Math.random() * currentIndex);
+     currentIndex--;
+     //y los mezclas
+     [remix[currentIndex], remix[randomIndex]] = [
+       remix[randomIndex],
+       remix[currentIndex],
+     ];
+   }
+   
+   return remix;
+ }
 
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
@@ -50,11 +54,11 @@ returnMain = addEventListener("click", (e) => {
 });
 
 inputrows.addEventListener("input", () => {
-  console.log(inputrows.value);
+  
   totalGameRows = inputrows.value;
 });
 inputnumbers.addEventListener("input", () => {
-  console.log(inputnumbers.value);
+  
   totalGameColors = inputnumbers.value;
 });
 
@@ -63,8 +67,12 @@ buttonSend.addEventListener("click", (e) => {
   if ((e.target.id = "buttonSend")) {
     totalGameRows = inputrows.value;
     totalGameColors = inputnumbers.value;
-    generateTable()
-   ;
+    generateTable();
+    winCondition = shuffle(colors);
+    winCondition2 = winCondition.slice(0, totalGameColors)
+    winCondition3 = winCondition.slice(0, parseInt(totalGameColors)+2)
+    paintWinConditionButtons()
+    paintColorPickerButtons()
     
   }
 });
@@ -78,7 +86,7 @@ mainContainer.id = 'main-container';
 let salutation = document.createElement('div');
 salutation.classList.add('salutation');
 salutation.id = 'salutation';
-salutation.textContent = 'MASTERMIND - EASY ❤️';
+salutation.textContent = 'MASTERMIND - RANDOM';
 mainContainer.appendChild(salutation);
 
 
@@ -106,7 +114,7 @@ guesserHidden.classList.add('guesser-hidden');
 
 winCondition.appendChild(hideWinCondition);
 winCondition.appendChild(guesserHidden);
-
+mainContainer.appendChild(winCondition);
 
 for (let i = totalGameRows; i > 0; i--) {
   let colorTry = document.createElement('div');
@@ -114,10 +122,11 @@ for (let i = totalGameRows; i > 0; i--) {
   colorTry.id = `guesser${i}Try`;
 
   
-  for (let j = 0; j < totalGameColors; j++) {
+  for (let j = 0; j < parseInt(totalGameColors) ; j++) {
     let colorButton = document.createElement('div');
     colorButton.classList.add('color-button');
     colorTry.appendChild(colorButton);
+    
   }
 
   
@@ -139,12 +148,24 @@ makeTry.classList.add('try-button');
 makeTry.id = 'makeTry';
 makeTry.textContent = '✅';
 
+ let colorPickerContainer = document.createElement("div");
+ colorPickerContainer.classList.add("color-picker")
+
+
+
 
 let colorPicker = document.createElement('div');
-colorPicker.classList.add('color-picker');
-colorPicker.id = 'colorPicker';
-colorPicker.appendChild(retTry);
-colorPicker.appendChild(makeTry);
+for (let k = 0; k < parseInt(totalGameColors)+2 ; k++) {
+   let colorPickerClass = document.createElement('div');
+   colorPickerClass.classList.add('color-cl');
+   colorPickerContainer.appendChild(colorPickerClass)
+ }
+   
+ colorPicker.appendChild(colorPickerContainer);
+colorPickerContainer.appendChild(retTry);
+ colorPickerContainer.appendChild(makeTry);
+
+
 
 
 let returnToMain = document.createElement('div');
@@ -152,10 +173,27 @@ returnToMain.classList.add('return-to-main');
 returnToMain.id = 'returnMain';
 returnToMain.innerHTML ="Back to main";
 
-mainContainer.appendChild(winCondition);
+
 mainContainer.appendChild(colorPicker);
 mainContainer.appendChild(returnToMain);
 
 
 document.body.appendChild(mainContainer);
 }
+
+function paintWinConditionButtons() {
+   
+   for (let i = 0; i < totalGameColors; i++) {
+     colorButtons[i].style.backgroundColor = winCondition2[i];
+   }
+ 
+ }
+
+ function paintColorPickerButtons() {
+   
+      shuffle(winCondition3)
+   for (let i = 0; i < totalGameColors + 2; i++) {
+     cuadroscolores[i].style.backgroundColor = winCondition3[i];;
+   }
+ 
+ }

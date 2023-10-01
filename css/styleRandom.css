@@ -29,6 +29,7 @@ body{
 }
 
 .main-container{
+   
    position: relative;
    border-radius: 20px;
    display: flex;
@@ -89,8 +90,8 @@ body{
 
 .color-picker{
    display: flex;
-   justify-content: space-evenly;
-   margin: auto auto 0.5em auto;
+   margin-left: 30px;
+   
    
 }
 
@@ -103,10 +104,10 @@ body{
    -moz-box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.462);
    box-shadow: 0px 0px 100px 10px rgba(255, 255, 255, 0.452);
    height: 4em;
-   width: 20em;
-   left: 1em;
-   top: 4.4em;
-   display: none;
+   width: 90%;
+   left: 0.2em;
+   top: 2.8em;
+   
 }
 
 
@@ -138,6 +139,8 @@ body{
 }
 
 #makeTry{
+   width: 2em;
+   height: 2em;
    cursor: pointer;
    margin-left: 10px;
    font-size: 40px;
@@ -150,6 +153,8 @@ body{
 
 }
 #retTry{
+   width: 2em;
+   height: 2em;
    cursor: pointer;
    margin-left: 23px;
    font-size: 40px;
@@ -177,7 +182,7 @@ body{
 .color-cl{
    height: 2em !important;
    width: 2em !important;
-   margin: 10px;
+   margin: 0.5em;
 }
 
 
