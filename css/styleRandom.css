@@ -9,6 +9,7 @@ body{
    align-items: center;
    background-color: #d3d3d3;
    background-image: linear-gradient(315deg, #d3d3d3 0%, #57606f 74%);
+   color: aliceblue;
       
 }
 
@@ -86,6 +87,8 @@ body{
 .salutation{
    font-size: 1.5em;
    margin: 0.5em auto;
+   padding-left: 1em;
+   padding-right: 1em;
 }
 
 .color-picker{
@@ -129,6 +132,10 @@ body{
    64%  { transform: scale(1,1)      translateY(0); }
    100% { transform: scale(1,1)      translateY(0); }
 }
+
+.subcontainer input{
+   margin: 10px
+}
  
 
 .color-try {
@@ -164,10 +171,26 @@ body{
    opacity: 0.5;
 
 }
+.buttonSend{
+   border: solid 1px white;
+   padding: 10px;
+   border-radius: 8px;
+   
+}
+
+.buttonSend:hover{
+   cursor: pointer;
+   opacity: 0.7;
+}
+
+.buttonSend:active{
+   
+   opacity: 1
+}
+
+
 
 .color-button{
-
-
    margin: 0 1em;
    height: 3em;
    width: 3em;
@@ -175,9 +198,10 @@ body{
    -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
-   
 
 }
+
+
 
 .color-cl{
    height: 2em !important;
@@ -190,7 +214,7 @@ body{
 .return-to-main{
    display: flex;
    justify-content: center;
-   color: #000000;
+   
    margin: auto ;
    height: 3em;
    width: 10em;
@@ -215,8 +239,27 @@ body{
 .color-button:active{
    opacity: 1;
 }
+
+.color-button:hover{
+   cursor:default;
+}
 .guesser-hidden{
    margin-left: 3em; 
+}
+
+.guesser{
+   margin-right: 1em;
+}
+
+.color-cl{
+   border-radius: 8px;
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+}
+
+.color-cl:hover{
+   cursor: pointer;
 }
 
 .guesser{

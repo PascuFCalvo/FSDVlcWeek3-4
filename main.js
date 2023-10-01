@@ -1,6 +1,7 @@
 let easy = document.getElementById("easyButton");
 let normal = document.getElementById("normalButton");
 let hard = document.getElementById("hardButton");
+let random = document.getElementById("randomButton")
 let userName = document.getElementById('userName')
 
 userName.addEventListener('input', () => {	
@@ -30,6 +31,14 @@ hard = addEventListener("click",(e)=>{
    if (e.target.id === "hardButton"){
       console.log("hola");
       window.open("./html/hard.html","_self");
+   }
+
+})
+
+hard = addEventListener("click",(e)=>{
+   if (e.target.id === "randomButton"){
+      console.log("hola");
+      window.open("./html/random.html","_self");
    }
 
 })

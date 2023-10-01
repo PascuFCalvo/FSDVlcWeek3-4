@@ -2,7 +2,7 @@ let returnMain = document.getElementById("returnMain");
 let makeTry = document.getElementById("makeTry");
 let retTry = document.getElementById("retTry");
 let colorPicker = document.getElementById("colorPicker");
-let cuadroscolores = document.getElementsByClassName("color-cl");
+let squarecolors = document.getElementsByClassName("color-cl");
 let row = 1;
 let n = 1;
 let winCondition = [];
@@ -83,6 +83,7 @@ buttonSend.addEventListener("click", (e) => {
     totalGameColors = inputnumbers.value;
     if(totalGameColors <= 12 && totalGameRows <= 12){
     generateTable();
+    document.getElementById("main-container").style.display = "none";
     winCondition = shuffle(colors);
     winCondition2 = winCondition.slice(0, totalGameColors);
     winCondition3 = winCondition.slice(0, parseInt(totalGameColors) + 2);
@@ -92,7 +93,7 @@ buttonSend.addEventListener("click", (e) => {
   }
 });
 
-function generateTable() {
+let generateTable = () => {
   let mainContainer = document.createElement("div");
   mainContainer.classList.add("main-container");
   mainContainer.id = "main-container";
@@ -179,15 +180,15 @@ function generateTable() {
   document.body.appendChild(mainContainer);
 }
 
-function paintWinConditionButtons() {
+let paintWinConditionButtons = () => {
   for (let i = 0; i < totalGameColors; i++) {
     colorButtons[i].style.backgroundColor = winCondition2[i];
   }
 }
 
-function paintColorPickerButtons() {
+let paintColorPickerButtons = () => {
   shuffle(winCondition3);
   for (let i = 0; i < totalGameColors + 2; i++) {
-    cuadroscolores[i].style.backgroundColor = winCondition3[i];
+    squarecolors[i].style.backgroundColor = winCondition3[i];
   }
 }

@@ -38,13 +38,36 @@ body{
 }
 
 .select-dificult-text{
-   font-size: 3em;
-   color: aliceblue
+   font-size: 1.5em;
+   color: aliceblue;
+   text-align: center;
 }
 
 .select-dificult-buttons{
    display: flex;
+   margin-bottom: 10px;
+
 }
+.welcome-text{
+   text-align: center;
+   font-size: 2em;
+   color: aliceblue;}
+   
+   
+
+
+
+.button-difficult-emoji{
+   color: aliceblue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 4em;
+   height: 2em;
+   background-color:rgba(127, 255, 212, 0);
+   
+}
+
 
 .button-difficult{
    color: aliceblue;
@@ -67,19 +90,7 @@ body{
    margin: 20px;
    margin-top: -20px;
 }
-#normal{
-   margin-left: -2px;
-   margin-right: 50px;
-}
-#easy{
-   margin-right: 35px;
-}
-#hard{
-   margin-right: 50px;
-}
-#random{
-   margin-right: 30px;
-}
+
 
 
 
