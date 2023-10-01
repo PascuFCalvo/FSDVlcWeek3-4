@@ -14,9 +14,9 @@ body{
 
 .main-container{
    position: relative;
-   border-radius: 2em;
+   border-radius: 20px;
    display: flex;
-   background-color: rgba(240, 255, 255, 0.216);
+   
    width: 30em;
    height: 48em;
    text-align: center;
