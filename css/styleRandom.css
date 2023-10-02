@@ -95,11 +95,14 @@ body{
    margin: 1.5em;
 }
 
-.color-picker{
+.colorPicker{
    display: flex;
    margin-left: 30px;
-   
-   
+
+}
+
+#colorPicker{
+   display:flex
 }
 
 .hide-win-condition{
@@ -140,6 +143,15 @@ body{
 
 .subcontainer input{
    margin: 10px
+}
+
+.winConditionRow{
+   
+      display: flex;
+      justify-content: space-evenly;
+      margin: auto auto 0.5em auto
+      
+   
 }
  
 
@@ -193,6 +205,30 @@ body{
    opacity: 1
 }
 
+.winConditionSquare{
+   margin: 0 1em;
+   height: 3em;
+   width: 3em;
+   border-radius: 20%;
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+
+
+}
+
+
+.win-condition-button{
+   margin: 0 1em;
+   height: 3em;
+   width: 3em;
+   border-radius: 20%;
+   -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+   box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
+
+}
+
 
 
 .color-button{
@@ -206,19 +242,17 @@ body{
 
 }
 
-
-
-.color-cl{
+.squareColor{
    height: 2em !important;
    width: 2em !important;
    margin: 0.5em;
 }
 
-.color-cl:hover{
+.squareColor:hover{
    opacity: 0.5
 }
 
-.color-cl:active{
+.squareColor:active{
    opacity: 1;
 }
 
@@ -265,14 +299,15 @@ body{
    margin-right: 1em;
 }
 
-.color-cl{
+.squareColor{
+   margin-left: 20px;
    border-radius: 8px;
    -webkit-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    -moz-box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
    box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.7);
 }
 
-.color-cl:hover{
+.squareColor:hover{
    cursor: pointer;
 }
 
