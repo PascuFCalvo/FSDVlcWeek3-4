@@ -41,7 +41,7 @@ for (let i = 0; i<colors2.length; i++){
 
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
-    console.log("hola");
+    
     window.open("../index.html", "_self");
   }
 });
@@ -67,9 +67,6 @@ function shuffle(remix) {
 window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
   winCondition = shuffle(colors2).slice(0,-2)
-  
-  console.log("wincondition",winCondition)
-  
   paintWinConditionButtons();
   paintTry(row);
 });
@@ -150,8 +147,7 @@ function colorClear() {
 }
 
 function comparation(array1, array2) {
-  console.log(winComparation[0])
-  console.log(winCondition[0])
+  
   for (let i = 0; i < array1.length ; i++) {
    if (array1[i]==array2[i]){
         guessResult.push("🟢");
@@ -224,7 +220,7 @@ function comparation(array1, array2) {
 
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
-    console.log(contador);
+    
     colorClear();
   }
 });

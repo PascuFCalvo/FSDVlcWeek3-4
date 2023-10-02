@@ -28,7 +28,6 @@ let guesserIndex = 0;
 //funcion que hace que el boton retunr, te duvuelva al main
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
-    console.log("hola");
     window.open("../index.html", "_self");
   }});
 //esta funcion coge el array wincondition y lo mezcla asignandole indices random
@@ -110,7 +109,6 @@ function colorPickerClick(eventoClick) {
 
 function colorClear() {
   
-    console.log("entra")
     if (row === 1) {
       firstTry.children[contador-1].style.backgroundColor = "rgba(0,0,0,0)";
       firstTry.children[contador].style.transition = "0.6s";
@@ -204,7 +202,6 @@ function comparation(array1, array2) {
 
 retTry.addEventListener("click",(e)=>{
   if(e.target.id === "retTry"){
-    console.log(contador)
     colorClear();
   }
 })

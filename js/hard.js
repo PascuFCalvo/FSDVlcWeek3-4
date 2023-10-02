@@ -49,7 +49,7 @@ for (let i = 0; i<colors2.length; i++){
 
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
-    console.log("hola");
+    
     window.open("../index.html", "_self");
   }
 });
@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
   winCondition = shuffle(colors2).slice(0,-2)
   
-  console.log("wincondition",winCondition)
+  
   
   paintWinConditionButtons();
   paintTry(row);
@@ -156,8 +156,7 @@ function colorClear() {
 }
 
 function comparation(array1, array2) {
-  console.log(winComparation[0])
-  console.log(winCondition[0])
+  
   for (let i = 0; i < array1.length ; i++) {
 
 
@@ -165,7 +164,10 @@ function comparation(array1, array2) {
         guessResult.push("⚔️");
         warriorAttack();
         reduceHealthBarNito();
-        
+        setTimeout(() => {
+          nitoRegeneration()
+          
+         }, 1000);
         
     }else if(array1[i] != array2[i] && array1.includes(array2[i])){
       guessResult.push("❤️‍🔥");
@@ -230,10 +232,7 @@ function comparation(array1, array2) {
   }else if(!newguessResult.includes("☠️") ||
   !newguessResult.includes("❤️‍🔥")){
    
-      setTimeout(() => {
-      nitoRegeneration()
-      
-     }, 1000);
+     
   } 
   
   else if (
@@ -252,7 +251,7 @@ function comparation(array1, array2) {
 
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
-    console.log(contador);
+    
     colorClear();
   }
 });
@@ -281,7 +280,7 @@ function youDied(){
 }
 
 function lowOpacity(){
-   console.log ("entra")
+   
    boxRows[invertRowCounter].style.opacity = "0.1";
    boxRows[invertRowCounter].style.transition = "all 30s";      
 }
@@ -311,7 +310,7 @@ function nitoAttack(){
 function nitoRegeneration(){
    healthNitoWidth = 12;
    document.getElementById("nitoHealth").style.width = "12em"
-   document.getElementById("nitoHealth").style.transition = "all 4s"
+   document.getElementById("nitoHealth").style.transition = "all 8s"
 }
 
 function heal(){
@@ -320,25 +319,25 @@ function heal(){
    newWidth = (healthWidth+1) + "em"
    document.getElementById("warriorHealth").style.width = newWidth;
    healthWidth = parseInt(newWidth);
-   console.log(healthWidth)}
+   }
    
 }
 
 function reduceHealthBar(){
-   console.log("entra a reduce")
+   
    let newWidth = healthWidth + "em"
    newWidth = (healthWidth-2) + "em"
    document.getElementById("warriorHealth").style.width = newWidth;
    document.getElementById("warriorHealth").style.transition = "all 2s"
    healthWidth = parseInt(newWidth);
-   console.log(healthWidth)
+   
 }
 function reduceHealthBarNito(){
-   console.log("entra a reduce")
+   
    let newNitoWidth = healthNitoWidth + "em"
    newNitoWidth = (healthNitoWidth-3) + "em"
    document.getElementById("nitoHealth").style.width = newNitoWidth;
    document.getElementById("warriorHealth").style.transition = "all 2s"
    healthNitoWidth = parseInt(newNitoWidth);
-   console.log(healthNitoWidth)
+   
 }

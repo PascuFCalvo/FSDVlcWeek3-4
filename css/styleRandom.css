@@ -85,10 +85,14 @@ body{
    
 }
 .salutation{
+   margin-top:20px;
    font-size: 1.5em;
-   margin: 0.5em auto;
    padding-left: 1em;
    padding-right: 1em;
+}
+
+#winCondition{
+   margin: 1.5em;
 }
 
 .color-picker{
@@ -109,7 +113,8 @@ body{
    height: 4em;
    width: 98%;
    left:1%;
-   top: 2.4em;
+   top: 4em;
+   display: none;
    
 }
 
@@ -208,6 +213,15 @@ body{
    width: 2em !important;
    margin: 0.5em;
 }
+
+.color-cl:hover{
+   opacity: 0.5
+}
+
+.color-cl:active{
+   opacity: 1;
+}
+
 
 
 
