@@ -124,6 +124,8 @@ function colorClear() {
       firstTry.children[contador].style.transition = "0.6s";
     }
     
+    winComparation.pop();
+
     if(contador>0){
       contador--;
     }

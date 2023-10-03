@@ -28,8 +28,10 @@ let colorButtons = document.getElementsByClassName("color-button");
 let winComparation = [];
 let winComparationGlobal = [];
 let guessResult = [];
-let actualRow = 0;
-let index = -1;
+let rowIndex;
+let index = 0;
+let getAllRows = [];
+let guesserIndex = 0;
 
 function shuffle(remix) {
   let currentIndex = remix.length,
@@ -58,9 +60,11 @@ buttonSend.addEventListener("click", (e) => {
   if (e.target.id == "buttonSend") {
     totalGameRows = inputrows.value;
     totalGameColors = inputnumbers.value;
+    rowIndex = totalGameRows - 1;
+    
     if (totalGameColors <= 8 && totalGameRows <= 8) {
       generateTable();
-
+      paintRow();
       document.getElementById("main-container").style.display = "none";
 
       winConditionComplete = shuffle(colors);
@@ -115,12 +119,13 @@ let generateTable = () => {
 
   for (let i = totalGameRows; i > 0; i--) {
     let colorTry = document.createElement("div");
-    colorTry.classList.add("color-try");
+    colorTry.classList.add("colortry" + i, "color-try", "row");
     colorTry.id = `guesser${i}Try`;
 
     for (let j = 0; j < parseInt(totalGameColors); j++) {
       let colorButton = document.createElement("div");
       colorButton.classList.add("color-button");
+      colorTry.id = `Button${i}`;
       colorTry.appendChild(colorButton);
     }
 
@@ -164,7 +169,7 @@ let generateTable = () => {
 
   document.body.appendChild(mainContainer);
 
-  paintRow();
+  getAllRows = document.getElementsByClassName("row");
 };
 
 let paintWinCondition = () => {
@@ -188,32 +193,34 @@ let paintSquareColors = () => {
 };
 
 let paintRow = () => {
-  let colorPickSquare = document.getElementsByClassName("squareColor");
-  let squareToPaint = document.getElementsByClassName("color-button");
+  
+  if (getAllRows.item(rowIndex) && rowIndex >= 0) {
+    colorPickSquare = addEventListener("click", (e) => {
+      if (
+        index <= winConditionResult.length - 1 &&
+        e.target.style.backgroundColor
+      ) {
+        
+        
+        getAllRows.item(rowIndex).children[index].style.backgroundColor =
+          e.target.style.backgroundColor; 
+          index++;
+        winComparation.push(e.target.style.backgroundColor);
 
-  colorPickSquare = addEventListener("click", (e) => {
-    if (
-      index <= winConditionResult.length - 2 &&
-      e.target.style.backgroundColor
-    ) {
-      index++;
 
-      squareToPaint[index].style.backgroundColor =
-        e.target.style.backgroundColor;
-
-      winComparation.push(e.target.style.backgroundColor);
-
-      console.log(index);
+        
+        
+      
     }
-  });
+      
+    });
+  }
 };
 
 let colorClear = () => {
-  let squareToPaint = document.getElementsByClassName("color-button");
-
   if (index >= 0) {
-    console.log(index);
-    squareToPaint[index].style.backgroundColor = "rgba(0,0,0,0)";
+    getAllRows.item(rowIndex).children[index].style.backgroundColor =
+      "rgba(0,0,0,0)";
 
     winComparation.pop();
   }
@@ -233,20 +240,22 @@ let comparation = (array1, array2) => {
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
   winComparationGlobal.push(newguessResult);
-  console.log(winComparationGlobal);
 
   let guessers = document.getElementsByClassName("guesser");
-  console.log(guessers.item(0));
 
-  guessers.item(0).innerHTML = winComparationGlobal[0];
+  guessers.item(rowIndex).innerHTML = winComparationGlobal[guesserIndex];
 };
 
 makeTry = addEventListener("click", (e) => {
   if (e.target.id === "makeTry") {
-    console.log("winCondition", winConditionResult);
-    console.log("winComparation", winComparation);
+    console.log("rowIndex", rowIndex);
     comparation(winConditionResult, winComparation);
-    actualRow++;
+    rowIndex--;
+    guesserIndex++;
+    index = 0;
+    guessResult = [];
+    winComparation = [];
+    paintRow();
   }
 });
 
