@@ -89,6 +89,7 @@ function paintWinConditionButtons() {
 }
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
+  console.log(n)
 };
 function colorPickerClick(eventoClick) {
   if (
@@ -221,7 +222,7 @@ function comparation(array1, array2) {
   if (
     !newguessResult.includes("☠️") &&
     !newguessResult.includes("❤️‍🔥") &&
-    n <= 5
+    n <= 7
   ) {
     document.getElementById("main-container").style.animation = "jump 1s";
     document.getElementById("salutation").innerText = "⚔️⚔️YOU WIN⚔️⚔️";
@@ -231,15 +232,12 @@ function comparation(array1, array2) {
     document.getElementById("main-container-nito").style.opacity = 0;
     document.getElementById("main-container-nito").style.transition = "all 5s"
 
-  }else if(!newguessResult.includes("☠️") ||
-  !newguessResult.includes("❤️‍🔥")){
-   
-     
-  } 
+  }
   
   else if (
-    (newguessResult.includes("☠️") || newguessResult.includes("❤️‍🔥")) && n >= 6)
+    (newguessResult.includes("☠️") || newguessResult.includes("❤️‍🔥")) && n == 6)
    {
+    console.log("has perdido")
       document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
     document.getElementById("hide-win-condition").style.display = "none";
     
@@ -274,11 +272,11 @@ makeTry.addEventListener("click", (e) => {
 
 function youDied(){
    document.getElementById("youDied").style.opacity = "1"
-   document.getElementById("youDied").style.opacity = "2"
+   
    
    document.getElementById("youDied").style.transition = "all 5s";
    document.getElementById("hide-win-condition").style.display = "none";
-   e.stopPropagation ();
+  //  e.stopPropagation ();
 }
 
 function lowOpacity(){

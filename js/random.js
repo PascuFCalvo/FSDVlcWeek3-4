@@ -61,7 +61,7 @@ buttonSend.addEventListener("click", (e) => {
     totalGameRows = inputrows.value;
     totalGameColors = inputnumbers.value;
     rowIndex = totalGameRows - 1;
-    
+
     if (totalGameColors <= 8 && totalGameRows <= 8) {
       generateTable();
       paintRow();
@@ -110,11 +110,10 @@ let generateTable = () => {
     winCondition.appendChild(winConditionSquare);
   }
 
-  let guesserHidden = document.createElement("div");
-  guesserHidden.classList.add("guesser-hidden");
+  
 
   winCondition.appendChild(hideWinCondition);
-  winCondition.appendChild(guesserHidden);
+  
   mainContainer.appendChild(winCondition);
 
   for (let i = totalGameRows; i > 0; i--) {
@@ -192,39 +191,39 @@ let paintSquareColors = () => {
   return colorPickSquare;
 };
 
+//estas dos funciones han ido mutando y al final es magia chatgpt porque no tenia manera de eliminar un mane
+//jador de eventos
+
 let paintRow = () => {
-  
   if (getAllRows.item(rowIndex) && rowIndex >= 0) {
-    colorPickSquare = addEventListener("click", (e) => {
-      if (
-        index <= winConditionResult.length - 1 &&
-        e.target.style.backgroundColor
-      ) {
-        
-        
-        getAllRows.item(rowIndex).children[index].style.backgroundColor =
-          e.target.style.backgroundColor; 
-          index++;
-        winComparation.push(e.target.style.backgroundColor);
-
-
-        
-        
-      
+    colorPickSquare = document.getElementsByClassName("squareColor");
+    for (let i = 0; i < colorPickSquare.length; i++) {
+      const square = colorPickSquare[i];
+      square.removeEventListener("click", clickHandler); // Eliminar el manejador anterior si existe
+      square.addEventListener("click", clickHandler); // Agregar un nuevo manejador
     }
-      
-    });
   }
 };
 
+function clickHandler(e) {
+  if (index <= winConditionResult.length - 1 && e.target.style.backgroundColor) {
+    getAllRows.item(rowIndex).children[index].style.backgroundColor =
+      e.target.style.backgroundColor;
+    index++;
+    winComparation.push(e.target.style.backgroundColor);
+  }
+}
+
+
 let colorClear = () => {
   if (index >= 0) {
+    index--;
     getAllRows.item(rowIndex).children[index].style.backgroundColor =
       "rgba(0,0,0,0)";
 
     winComparation.pop();
   }
-  index--;
+  
 };
 
 let comparation = (array1, array2) => {
@@ -247,7 +246,7 @@ let comparation = (array1, array2) => {
 };
 
 makeTry = addEventListener("click", (e) => {
-  if (e.target.id === "makeTry") {
+  if (e.target.id === "makeTry" && index == totalGameColors) {
     console.log("rowIndex", rowIndex);
     comparation(winConditionResult, winComparation);
     rowIndex--;
