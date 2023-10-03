@@ -1,36 +1,40 @@
-
 let squarecolors = document.getElementsByClassName("color-cl");
 let currentRowToFill = 1;
 let colors = [
-  "Red",
-  "Orange",
-  "Yellow",
-  "Green",
-  "Blue",
-  "Purple",
-  "Pink",
-  "Brown",
-  "Cyan",
-  "Magenta",
-  "Lavender",
-  "Teal",
-  "Olive",
-  "Maroon",
-  "Navy",
-  "Turquoise",
-  "SlateGray",
-  "Violet",
-  "Indigo",
-  "Gold",
-  "Silver",
-  "Gray",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "pink",
+  "brown",
+  "cyan",
+  "magenta",
+  "lavender",
+  "teal",
+  "olive",
+  "maroon",
+  "navy",
+  "turquoise",
+  "slategray",
+  "violet",
+  "indigo",
+  "gold",
+  "silver",
+  "gray",
 ];
 let colorButtons = document.getElementsByClassName("color-button");
+let winComparation = [];
+let winComparationGlobal = [];
+let guessResult = [];
+let actualRow = 0;
+let index = -1;
 
 function shuffle(remix) {
   let currentIndex = remix.length,
     randomIndex;
-  while (currentIndex > 0) { 
+  while (currentIndex > 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
     [remix[currentIndex], remix[randomIndex]] = [
@@ -42,46 +46,41 @@ function shuffle(remix) {
   return remix;
 }
 
-
-
 inputrows.addEventListener("input", () => {
   totalGameRows = inputrows.value;
-
 });
 
 inputnumbers.addEventListener("input", () => {
   totalGameColors = inputnumbers.value;
- 
 });
 
 buttonSend.addEventListener("click", (e) => {
- 
-  if ((e.target.id == "buttonSend")) {
+  if (e.target.id == "buttonSend") {
     totalGameRows = inputrows.value;
     totalGameColors = inputnumbers.value;
-    if(totalGameColors <= 8 && totalGameRows <= 8){
+    if (totalGameColors <= 8 && totalGameRows <= 8) {
+      generateTable();
 
-    generateTable();
-    selectColor = document.getElementsByClassName("color-cl")
-   
-    document.getElementById("main-container").style.display = "none";
+      document.getElementById("main-container").style.display = "none";
 
-    winConditionComplete = shuffle(colors);
-    winConditionPickColors= winConditionComplete.slice(0, parseInt(totalGameColors) + 2);
-    winConditionResult = winConditionPickColors.slice(0,4)
-    
+      winConditionComplete = shuffle(colors);
+      winConditionPickColors = winConditionComplete.slice(
+        0,
+        parseInt(totalGameColors) + 2
+      );
+      winConditionResult = shuffle(
+        winConditionPickColors.slice(0, parseInt(totalGameColors))
+      );
 
-    console.log(winConditionComplete)
-    console.log(winConditionResult)
-    console.log(winConditionPickColors)
-
-  }else{console.log("error")}
-    
+      paintWinCondition();
+      paintSquareColors();
+    } else {
+      console.log("error");
+    }
   }
 });
 
 let generateTable = () => {
-
   let mainContainer = document.createElement("div");
   mainContainer.classList.add("main-container");
   mainContainer.id = "main-container";
@@ -105,10 +104,7 @@ let generateTable = () => {
     let winConditionSquare = document.createElement("div");
     winConditionSquare.classList.add("winConditionSquare");
     winCondition.appendChild(winConditionSquare);
-
-   
   }
-
 
   let guesserHidden = document.createElement("div");
   guesserHidden.classList.add("guesser-hidden");
@@ -146,14 +142,12 @@ let generateTable = () => {
   makeTry.id = "makeTry";
   makeTry.textContent = "✅";
 
-
-
   let colorPicker = document.createElement("div");
   for (let k = 0; k < parseInt(totalGameColors) + 2; k++) {
     let colorPickerClass = document.createElement("div");
-    colorPicker.setAttribute("id", "colorPicker")
+    colorPicker.setAttribute("id", "colorPicker");
     colorPickerClass.classList.add("squareColor");
-    colorPickerClass.setAttribute("id", `squareColor${k}`)
+    colorPickerClass.setAttribute("id", `squareColor${k}`);
     colorPicker.appendChild(colorPickerClass);
   }
 
@@ -170,10 +164,94 @@ let generateTable = () => {
 
   document.body.appendChild(mainContainer);
 
- 
-}
+  paintRow();
+};
 
+let paintWinCondition = () => {
+  let winConditionSquare =
+    document.getElementsByClassName("winConditionSquare");
+  for (let index = 0; index < winConditionResult.length; index++) {
+    winConditionSquare.item(index).style.backgroundColor =
+      winConditionResult[index];
+  }
+  return winConditionSquare;
+};
 
+let paintSquareColors = () => {
+  let colorPickSquare = document.getElementsByClassName("squareColor");
+  for (let index = 0; index < winConditionPickColors.length; index++) {
+    colorPickSquare.item(index).style.backgroundColor =
+      winConditionPickColors[index];
+  }
 
+  return colorPickSquare;
+};
 
+let paintRow = () => {
+  let colorPickSquare = document.getElementsByClassName("squareColor");
+  let squareToPaint = document.getElementsByClassName("color-button");
 
+  colorPickSquare = addEventListener("click", (e) => {
+    if (
+      index <= winConditionResult.length - 2 &&
+      e.target.style.backgroundColor
+    ) {
+      index++;
+
+      squareToPaint[index].style.backgroundColor =
+        e.target.style.backgroundColor;
+
+      winComparation.push(e.target.style.backgroundColor);
+
+      console.log(index);
+    }
+  });
+};
+
+let colorClear = () => {
+  let squareToPaint = document.getElementsByClassName("color-button");
+
+  if (index >= 0) {
+    console.log(index);
+    squareToPaint[index].style.backgroundColor = "rgba(0,0,0,0)";
+
+    winComparation.pop();
+  }
+  index--;
+};
+
+let comparation = (array1, array2) => {
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] == array2[i]) {
+      guessResult.push("🟢");
+    } else if (array1[i] != array2[i] && array1.includes(array2[i])) {
+      guessResult.push("🟡");
+    } else if (array1[i] != array2[i]) {
+      guessResult.push("🔴");
+    }
+
+    var newguessResult = guessResult.toString().replace(/,/g, "");
+  }
+  winComparationGlobal.push(newguessResult);
+  console.log(winComparationGlobal);
+
+  let guessers = document.getElementsByClassName("guesser");
+  console.log(guessers.item(0));
+
+  guessers.item(0).innerHTML = winComparationGlobal[0];
+};
+
+makeTry = addEventListener("click", (e) => {
+  if (e.target.id === "makeTry") {
+    console.log("winCondition", winConditionResult);
+    console.log("winComparation", winComparation);
+    comparation(winConditionResult, winComparation);
+    actualRow++;
+  }
+});
+
+retTry = addEventListener("click", (e) => {
+  if (e.target.id === "retTry") {
+    colorClear();
+  }
+});

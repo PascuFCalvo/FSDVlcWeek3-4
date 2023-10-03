@@ -140,8 +140,10 @@ function colorClear() {
    sixthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
    firstTry.children[contador].style.transition = "0.6s";
    }
-
+  
   if (contador > 0) {
+
+    winComparation.pop();
     contador--;
   }
 }
