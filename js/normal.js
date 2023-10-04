@@ -1,4 +1,5 @@
 let returnMain = document.getElementById("returnMain");
+let playagain = document.getElementById("play-again");
 let makeTry = document.getElementById("makeTry");
 let retTry = document.getElementById("retTry");
 let colorPicker = document.getElementById("colorPicker");
@@ -38,6 +39,13 @@ returnMain = addEventListener("click", (e) => {
     window.open("../index.html", "_self");
   }
 });
+
+playagain = addEventListener("click", (e) => {
+  if (e.target.id === "play-again") {
+    window.open("./normal.html", "_self");
+  }
+});
+
 //genera el random
 function shuffle(remix) {
   let currentIndex = remix.length,

@@ -90,6 +90,11 @@ body {
    justify-content: space-evenly;
    margin: auto auto 0.5em auto;
 }
+.buttons {
+   display: flex;
+   padding: 1em;
+}
+
 .hide-win-condition {
    border-radius: 10px;
    position: absolute;
@@ -98,7 +103,7 @@ body {
    height: 4em;
    width: 98%;
    left: 1%;
-   top: 4.5em;
+   top: 4.7em;
 }
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
    .container {
@@ -183,6 +188,30 @@ body {
 .return-to-main:active {
    opacity: 1;
 }
+
+.play-again {
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   height: 3em;
+   width: 10em;
+   border-radius: 0.5em;
+   border: solid 2px aliceblue;
+   color: aliceblue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   background-color: rgba(127, 255, 212, 0);
+}
+.play-again:hover {
+   cursor: pointer;
+   background-color: rgb(0, 255, 170);
+}
+.play-again:active {
+   opacity: 1;
+}
+
 .color-button:hover {
    cursor: pointer;
    opacity: 0.7;

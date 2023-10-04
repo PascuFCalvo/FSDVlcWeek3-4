@@ -1,4 +1,6 @@
 let squarecolors = document.getElementsByClassName("color-cl");
+let returnMain = document.getElementById("returnMain");
+let playagain = document.getElementById("play-again");
 let currentRowToFill = 1;
 let colors = [
   "red",
@@ -46,6 +48,20 @@ function shuffle(remix) {
   }
   return remix;
 }
+
+returnMain = addEventListener("click", (e) => {
+  if (e.target.id === "returnMain") {
+    window.open("../index.html", "_self");
+  }
+});
+
+playagain = addEventListener("click", (e) => {
+  if (e.target.id === "play-again") {
+    window.open("./random.html", "_self");
+  }
+});
+
+
 inputrows.addEventListener("input", () => {
   totalGameRows = inputrows.value;
 });
@@ -83,7 +99,7 @@ let generateTable = () => {
   mainContainer.id = "main-container-2";
   let salutation = document.createElement("div");
   salutation.classList.add("salutation");
-  salutation.id = "salutation";
+  salutation.id = "salutation-2";
   salutation.textContent = "MASTERMIND - RANDOM";
   mainContainer.appendChild(salutation);
   let winCondition = document.createElement("div");
@@ -134,12 +150,27 @@ let generateTable = () => {
   }
   colorPicker.appendChild(retTry);
   colorPicker.appendChild(makeTry);
+
+  let playagain = document.createElement("div");
+  playagain.classList.add("play-again");
+  playagain.id = "play-again";
+  playagain.innerHTML = "Play again";
+
   let returnToMain = document.createElement("div");
   returnToMain.classList.add("return-to-main");
   returnToMain.id = "returnMain";
   returnToMain.innerHTML = "Back to main";
+
+  let buttons = document.createElement("div");
+  buttons.classList.add("buttons");
+  buttons.id = "buttons"
+
+  buttons.appendChild(returnToMain);  
+  buttons.appendChild(playagain);
+
   mainContainer.appendChild(colorPicker);
-  mainContainer.appendChild(returnToMain);
+  mainContainer.appendChild(buttons)
+  
   document.body.appendChild(mainContainer);
   getAllRows = document.getElementsByClassName("row");
 };
@@ -207,7 +238,8 @@ let comparation = (array1, array2) => {
   guessers.item(rowIndex).innerHTML = winComparationGlobal[guesserIndex];
 
   if (newguessResult.includes("🟡")||newguessResult.includes("🔴")) {
-    console.log((document.getElementById("main-container-2").style.backgroundColor))
+    console.log(totalGameRows)
+    console.log(n)
     document.getElementById("main-container-2").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container-2").style.animation = "";
@@ -216,17 +248,17 @@ let comparation = (array1, array2) => {
   if (
     !newguessResult.includes("🔴") &&
     !newguessResult.includes("🟡") &&
-    n <= 3
+    n <= totalGameRows
   ) {
-    document.getElementById("main-container").style.animation = "jump 1s";
-    document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉";
+    document.getElementById("main-container-2").style.animation = "jump 1s";
+    document.getElementById("salutation-2").innerHTML = "🎉🎉YOU WIN🎉🎉";
     document.getElementById("hide-win-condition").style.display = "none";
   } else if (
     (newguessResult.includes("🔴") || newguessResult.includes("🟡")) &&
-    n >= 3
+    n >= totalGameRows
   ) {
-    document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭";
-    document.getElementById("main-container").style.animation = "drop 5s";
+    document.getElementById("salutation-2").innerHTML = "😭😭YOU LOOSE😭😭";
+    document.getElementById("main-container-2").style.animation = "drop 5s";
     document.getElementById("hide-win-condition").style.display = "none";
   }
 };

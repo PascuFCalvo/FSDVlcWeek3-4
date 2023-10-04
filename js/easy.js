@@ -1,4 +1,5 @@
 let returnMain = document.getElementById("returnMain");
+let playagain = document.getElementById("play-again")
 let makeTry = document.getElementById("makeTry");
 let retTry = document.getElementById("retTry");
 let colorPicker = document.getElementById("colorPicker");
@@ -26,6 +27,11 @@ let guesserIndex = 0;
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     window.open("../index.html", "_self");
+  }
+});
+playagain = addEventListener("click", (e) => {
+  if (e.target.id === "play-again") {
+    window.open("./easy.html", "_self");
   }
 });
 //esta funcion coge el array wincondition y lo mezcla asignandole indices random
