@@ -76,3 +76,9 @@ body {
    height: 5em;
    background: linear-gradient(90deg, #B3CC57 0%, #ECF081 20%, #FFBE40 40%, #EF746F 60%, #AB3E5B 80%, #7CCCE5 100%);
 }
+
+@media only screen and (max-width: 600px) {
+   body {
+     scale: 0.8;
+   }
+ }

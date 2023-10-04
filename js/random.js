@@ -1,6 +1,7 @@
 let squarecolors = document.getElementsByClassName("color-cl");
 let returnMain = document.getElementById("returnMain");
 let playagain = document.getElementById("play-again");
+let userName = localStorage.getItem("userName");
 let currentRowToFill = 1;
 let colors = [
   "red",
@@ -73,6 +74,17 @@ buttonSend.addEventListener("click", (e) => {
     totalGameRows = inputrows.value;
     totalGameColors = inputnumbers.value;
     rowIndex = totalGameRows - 1;
+    
+    if(totalGameRows > 8 || totalGameRows < 0){
+      document.getElementById("inputrows").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+      document.getElementById("inputrows").innerHTML = ""
+    } else
+
+    if(totalGameColors > 8 || totalGameColors < 0){
+      document.getElementById("inputnumbers").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+    }
+
+
     if (totalGameColors <= 8 && totalGameRows <= 8) {
       generateTable();
       paintRow();
@@ -251,13 +263,13 @@ let comparation = (array1, array2) => {
     n <= totalGameRows
   ) {
     document.getElementById("main-container-2").style.animation = "jump 1s";
-    document.getElementById("salutation-2").innerHTML = "🎉🎉YOU WIN🎉🎉";
+    document.getElementById("salutation-2").innerHTML = `🎉🎉${userName} YOU WIN🎉🎉`
     document.getElementById("hide-win-condition").style.display = "none";
   } else if (
     (newguessResult.includes("🔴") || newguessResult.includes("🟡")) &&
     n >= totalGameRows
   ) {
-    document.getElementById("salutation-2").innerHTML = "😭😭YOU LOOSE😭😭";
+    document.getElementById("salutation-2").innerHTML = `😭😭${userName} YOU LOOSE😭😭`;
     document.getElementById("main-container-2").style.animation = "drop 5s";
     document.getElementById("hide-win-condition").style.display = "none";
   }

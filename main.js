@@ -3,18 +3,28 @@ let normal = document.getElementById("normalButton");
 let hard = document.getElementById("hardButton");
 let random = document.getElementById("randomButton")
 let userName = document.getElementById('userName')
+let userNamePicked = ""
 
 userName.addEventListener('input', () => {	
 	
-   let userNamePicked = userName.value;
+   userNamePicked = userName.value;
    localStorage.setItem ("userName", userNamePicked)
 })
 
 
 easy = addEventListener("click",(e)=>{
    if (e.target.id === "easyButton"){
+
+      if(!userNamePicked){
+         console.log("NO!")
+         userName.style.backgroundColor = "rgb(255, 0, 0,0.2)"
+         userName.style.transition = ("1s")
+         userName.innerHTML = "Pick a name"
+      }else {
+        window.open("./html/easy.html","_self"); 
+      }
       
-      window.open("./html/easy.html","_self");
+      
    }
 
 })
@@ -22,24 +32,41 @@ easy = addEventListener("click",(e)=>{
 normal = addEventListener("click",(e)=>{
    if (e.target.id === "normalButton"){
       
+      if(!userNamePicked){
+         console.log("NO!")
+         userName.style.backgroundColor = "rgb(255, 0, 0,0.2)"
+         userName.style.transition = ("1s")
+         userName.innerHTML = "Pick a name"
+      }else {
       window.open("./html/colors.html","_self");
-   }
+   }}
 
 })
 
 hard = addEventListener("click",(e)=>{
    if (e.target.id === "hardButton"){
-      console.log("hola");
+      
+      if(!userNamePicked){
+         console.log("NO!")
+         userName.style.backgroundColor = "rgb(255, 0, 0,0.2)"
+         userName.style.transition = ("1s")
+         userName.innerHTML = "Pick a name"
+      }else {
       window.open("./html/hard.html","_self");
-   }
+   }}
 
 })
 
 hard = addEventListener("click",(e)=>{
    if (e.target.id === "randomButton"){
-      console.log("hola");
+      if(!userNamePicked){
+         console.log("NO!")
+         userName.style.backgroundColor = "rgb(255, 0, 0,0.2)"
+         userName.style.transition = ("1s")
+         userName.innerHTML = "Pick a name"
+      }else {
       window.open("./html/random.html","_self");
-   }
+   }}
 
 })
 

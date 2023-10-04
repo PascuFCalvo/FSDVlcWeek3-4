@@ -1,5 +1,6 @@
 let returnMain = document.getElementById("returnMain");
-let playagain = document.getElementById("play-again")
+let playagain = document.getElementById("play-again");
+let userName = localStorage.getItem("userName");
 let makeTry = document.getElementById("makeTry");
 let retTry = document.getElementById("retTry");
 let colorPicker = document.getElementById("colorPicker");
@@ -169,13 +170,13 @@ function comparation(array1, array2) {
     n <= 4
   ) {
     document.getElementById("main-container").style.animation = "jump 1s";
-    document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉";
+    document.getElementById("salutation").innerText =`🎉🎉${userName} YOU WIN🎉🎉`;
     document.getElementById("hide-win-condition").style.display = "none";
   } else if (
     newguessResult.includes("🔴") ||
     (newguessResult.includes("🟡") && n >= 4)
   ) {
-    document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭";
+    document.getElementById("salutation").innerText = `😭😭${userName} YOU LOOSE😭😭`;
     document.getElementById("main-container").style.animation = "drop 10s";
     document.getElementById("hide-win-condition").style.display = "none";
   }
