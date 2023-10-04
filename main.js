@@ -6,8 +6,11 @@ let userName = document.getElementById('userName')
 let userNamePicked = ""
 
 userName.addEventListener('input', () => {	
+   
 	
    userNamePicked = userName.value;
+   userName.style.backgroundColor = "rgba(255, 254, 254, 0.049)"
+   userName.style.transition = ("1.5s")
    localStorage.setItem ("userName", userNamePicked)
 })
 
