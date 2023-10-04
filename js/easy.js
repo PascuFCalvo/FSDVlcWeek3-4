@@ -10,7 +10,6 @@ let guesser1 = document.getElementById("guesser1");
 let guesser2 = document.getElementById("guesser2");
 let guesser3 = document.getElementById("guesser3");
 let guesser4 = document.getElementById("guesser4");
-
 let colors = ["red", "goldenrod", "purple"];
 let row = 1;
 let n = 1;
@@ -23,7 +22,6 @@ let winConditionButton = document.getElementsByClassName(
 );
 let contador = 0;
 let guesserIndex = 0;
-
 //funcion que hace que el boton retunr, te duvuelva al main
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
@@ -45,7 +43,6 @@ function shuffle(WinCondition) {
       WinCondition[currentIndex],
     ];
   }
-
   return WinCondition;
 }
 //evento que se hace al cargar la pagina (llama a 3 funciones)
@@ -57,7 +54,6 @@ window.addEventListener("load", () => {
   paintWinConditionButtons();
   paintTry(row);
 });
-
 //coge todos los elementos con la clase winConditionButton y los va itreando para darles el color de la posicion que se ha generado en winCondition
 function paintWinConditionButtons() {
   for (let i = 0; i < winConditionButton.length; i++) {
@@ -68,15 +64,11 @@ function paintWinConditionButtons() {
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
 };
-
 //funcion principal
 // funciona cada vez que haces click, por la funcion de arriba
 //si haces click (eventoClick) en cualquier sitio de la pantalla y la id de ese sitio coincide con alguna de las que le pasas como parametro...
-
 //coge la  fila o intento (firstTry)y le va asigando a sus elemntos hijos por orden (tiene 3 childs) el id que en este caso es el color.
-
 //le pongo un contador para asegurar que solo pinta como mucho 3 cuadros (y no me pinte otros elementos que pueda añadir despues)
-
 function colorPickerClick(eventoClick) {
   if (
     (eventoClick.target.id == "red" ||
@@ -103,10 +95,8 @@ function colorPickerClick(eventoClick) {
     contador++;
   }
 }
-
 //esta hace lo mismo que la de arriba pero en vez de pintar limpia a transparente para "borrar"
 //y como esta asignada al boton retroceder el contador se reduce para ir par aatras
-
 function colorClear() {
   if (row === 1) {
     firstTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
@@ -121,24 +111,19 @@ function colorClear() {
     fourthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
     firstTry.children[contador].style.transition = "0.6s";
   }
-
   winComparation.pop();
-
   if (contador > 0) {
     contador--;
   }
 }
-
 //esta funcion compara 2 arrays para ir generando el comprobador de bolitas de colores
 //en cada jugada genera un array de 3 bolitas
 //y conforme vas avanzando en el juego va generando un array de arrays de 3 bolitas
 //y va aumentando el indice guesserIndex
-
 //si no aciertas vibra
 //si ganas da un saltito
 //si pierdes se cae
 //y cuando terminas desaparece el div que tapa la solucion
-
 function comparation(array1, array2) {
   for (let i = 0; i <= array1.length - 1; i++) {
     if (array1[i] === array2[i]) {
@@ -154,33 +139,24 @@ function comparation(array1, array2) {
   switch (guesserIndex) {
     case 0:
       guesser1.innerHTML = winComparationGlobal[0];
-
       break;
-
     case 1:
       guesser2.innerHTML = winComparationGlobal[1];
-
       break;
-
     case 2:
       guesser3.innerHTML = winComparationGlobal[2];
-
       break;
-
     case 3:
       guesser4.innerHTML = winComparationGlobal[3];
-
       break;
   }
-
-  if (newguessResult.includes("🟡")) {
+  if (newguessResult.includes("🟡")||newguessResult.includes("🔴")) {
     //to-do factorizar dentrod e una funcion
     document.getElementById("main-container").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container").style.animation = "";
     }, 501);
   }
-
   if (
     !newguessResult.includes("🔴") &&
     !newguessResult.includes("🟡") &&
@@ -197,18 +173,14 @@ function comparation(array1, array2) {
     document.getElementById("main-container").style.animation = "drop 10s";
     document.getElementById("hide-win-condition").style.display = "none";
   }
-
   guesserIndex++;
 }
-
 //este evento le dice al voton de la flechita para atras que borre llamando a color clear
-
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
     colorClear();
   }
 });
-
 //este evento le dice al boton de check varias cosas
 //resetea guessResult a vacio para que no se genere un array de bolitas infinito
 //incrementa la fila donde estas jugando en 1
@@ -217,7 +189,6 @@ retTry.addEventListener("click", (e) => {
 //reseta la winComparation a [] para no hacer un array infinito
 //y vuelve a llamar a la funcion de jugar PointTry, que recibe como argumento la fila en la que
 //esta y asi poder ir subiendo
-
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 3) {
     comparation(winCondition, winComparation);

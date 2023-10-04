@@ -26,17 +26,13 @@ let winConditionButton = document.getElementsByClassName(
 );
 let contador = 0;
 let guesserIndex = 0;
-
 let colors = localStorage.getItem("colores");
 let colors2 = colors.split(",");
-
 let colors3 = colors2;
-
 for (let i = 0; i < colors2.length; i++) {
   cuadroscolores[i].style.backgroundColor = colors2[i];
   cuadroscolores[i].setAttribute("id", colors2[i]);
 }
-
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     window.open("../index.html", "_self");
@@ -57,17 +53,14 @@ function shuffle(remix) {
       remix[currentIndex],
     ];
   }
-
   return remix;
 }
-
 window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
   winCondition = shuffle(colors2).slice(0, -2);
   paintWinConditionButtons();
   paintTry(row);
 });
-
 function paintWinConditionButtons() {
   for (let i = 0; i < 4; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
@@ -108,11 +101,9 @@ function colorPickerClick(eventoClick) {
       firstTry.children[contador].style.transition = "0.6s";
     }
     winComparation.push(eventoClick.target.id);
-
     contador++;
   }
 }
-
 function colorClear() {
   if (row === 1) {
     firstTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
@@ -133,13 +124,11 @@ function colorClear() {
     sixthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
     firstTry.children[contador].style.transition = "0.6s";
   }
-
   if (contador > 0) {
     winComparation.pop();
     contador--;
   }
 }
-
 function comparation(array1, array2) {
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] == array2[i]) {
@@ -149,48 +138,36 @@ function comparation(array1, array2) {
     } else if (array1[i] != array2[i]) {
       guessResult.push("🔴");
     }
-
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
   winComparationGlobal.push(newguessResult);
   switch (guesserIndex) {
     case 0:
       guesser1.innerHTML = winComparationGlobal[0];
-
       break;
-
     case 1:
       guesser2.innerHTML = winComparationGlobal[1];
-
       break;
-
     case 2:
       guesser3.innerHTML = winComparationGlobal[2];
-
       break;
-
     case 3:
       guesser4.innerHTML = winComparationGlobal[3];
-
       break;
     case 4:
       guesser5.innerHTML = winComparationGlobal[4];
-
       break;
     case 5:
       guesser6.innerHTML = winComparationGlobal[5];
-
       break;
   }
-
-  if (newguessResult.includes("🟡")) {
+  if (newguessResult.includes("🟡")||newguessResult.includes("🔴")) {
     //to-do factorizar dentrod e una funcion
     document.getElementById("main-container").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container").style.animation = "";
     }, 501);
   }
-
   if (
     !newguessResult.includes("🔴") &&
     !newguessResult.includes("🟡") &&
@@ -207,16 +184,13 @@ function comparation(array1, array2) {
     document.getElementById("main-container").style.animation = "drop 5s";
     document.getElementById("hide-win-condition").style.display = "none";
   }
-
   guesserIndex++;
 }
-
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
     colorClear();
   }
 });
-
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 4) {
     comparation(winCondition, winComparation);

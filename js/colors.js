@@ -8,7 +8,6 @@ let colores2 = "#F04155,#FF823A,#F2F26F,#FFF7BD,#95CFB7,#F0E2A4";
 let colores3 = "#FF9900,#424242,#E9E9E9,#BCBCBC,#3299BB,#604848";
 let colores4 = "#B3CC57,#ECF081,#FFBE40,#EF746F,#AB3E5B,#7CCCE5";
 let colores = "";
-
 mainContainer = addEventListener("click", (e) => {
   if (e.target.id == "icolor-row1") {
     let colores = colores1;

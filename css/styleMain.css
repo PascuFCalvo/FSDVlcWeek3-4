@@ -10,9 +10,6 @@ body {
    background-color: #d3d3d3;
    background-image: linear-gradient(315deg, #d3d3d3 0%, #57606f 74%);
 }
-
-
-
 .input {
    text-align: center;
    background-color: rgba(255, 254, 254, 0.049);
@@ -25,41 +22,31 @@ body {
   transition: padding 0.3s 0.2s ease;
   padding: 0.2em;
   color: rgb(0, 255, 170);
-
 }
-
 .main-container {
    width: 30em;
    height: 30em;
-
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-
    border-radius: 20px;
    box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
-
 }
-
 .select-dificult-text {
    font-size: 1.5em;
    color: aliceblue;
    text-align: center;
 }
-
 .select-dificult-buttons {
    display: flex;
    margin-bottom: 10px;
-
 }
-
 .welcome-text {
    text-align: center;
    font-size: 2em;
    color: aliceblue;
 }
-
 .button-difficult-emoji {
    color: aliceblue;
    display: flex;
@@ -68,10 +55,7 @@ body {
    width: 4em;
    height: 2em;
    background-color: rgba(127, 255, 212, 0);
-
 }
-
-
 .button-difficult {
    color: aliceblue;
    display: flex;
@@ -84,7 +68,6 @@ body {
    border-radius: 6px;
    margin: 8px;
 }
-
 .button-difficult-emoji {
    color: aliceblue;
    display: flex;
@@ -93,15 +76,10 @@ body {
    margin: 20px;
    margin-top: -20px;
 }
-
-
-
-
 .button-difficult:hover {
    cursor: pointer;
    background-color: rgb(0, 255, 170);
 }
-
 .button-difficult:active {
    cursor: pointer;
    

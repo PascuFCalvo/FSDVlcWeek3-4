@@ -30,20 +30,15 @@ let winConditionButton = document.getElementsByClassName(
 );
 let contador = 0;
 let guesserIndex = 0;
-
 let colors = "#bf8c00,#b45f06,#b43d06,#a80707,#310b0b,#282828";
 let colors2 = colors.split(",");
-
 let colors3 = colors2;
-
 let userName = localStorage.getItem("userName");
 document.getElementById("playerName").innerText = userName;
-
 for (let i = 0; i < colors2.length; i++) {
   cuadroscolores[i].style.backgroundColor = colors2[i];
   cuadroscolores[i].setAttribute("id", colors2[i]);
 }
-
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
     window.open("../index.html", "_self");
@@ -64,14 +59,11 @@ function shuffle(remix) {
       remix[currentIndex],
     ];
   }
-
   return remix;
 }
-
 window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
   winCondition = shuffle(colors2).slice(0, -2);
-
   paintWinConditionButtons();
   paintTry(row);
 });
@@ -116,11 +108,9 @@ function colorPickerClick(eventoClick) {
       firstTry.children[contador].style.transition = "0.6s";
     }
     winComparation.push(eventoClick.target.id);
-
     contador++;
   }
 }
-
 function colorClear() {
   if (row === 1) {
     firstTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
@@ -141,14 +131,11 @@ function colorClear() {
     sixthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
     firstTry.children[contador].style.transition = "0.6s";
   }
-
   winComparation.pop();
-
   if (contador > 0) {
     contador--;
   }
 }
-
 function comparation(array1, array2) {
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] == array2[i]) {
@@ -166,7 +153,6 @@ function comparation(array1, array2) {
       nitoAttack();
       reduceHealthBar();
     }
-
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
   winComparationGlobal.push(newguessResult);
@@ -190,19 +176,16 @@ function comparation(array1, array2) {
       guesser6.innerHTML = winComparationGlobal[5];
       break;
   }
-
   if (healthWidth <= 0) {
     document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
     youDied();
   }
-
-  if (newguessResult.includes("❤️‍🔥")) {
+  if (newguessResult.includes("❤️‍🔥")||newguessResult.includes("☠️")) {
     document.getElementById("main-container").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container").style.animation = "";
     }, 501);
   }
-
   if (
     !newguessResult.includes("☠️") &&
     !newguessResult.includes("❤️‍🔥") &&
@@ -222,19 +205,15 @@ function comparation(array1, array2) {
     console.log("has perdido");
     document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
     document.getElementById("hide-win-condition").style.display = "none";
-
     youDied();
   }
-
   guesserIndex++;
 }
-
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
     colorClear();
   }
 });
-
 makeTry.addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && contador === 4) {
     comparation(winCondition, winComparation);
@@ -248,31 +227,25 @@ makeTry.addEventListener("click", (e) => {
     invertRowCounter--;
   }
 });
-
 function youDied() {
   document.getElementById("youDied").style.opacity = "1";
-
   document.getElementById("youDied").style.transition = "all 5s";
   document.getElementById("hide-win-condition").style.display = "none";
   //  e.stopPropagation ();
 }
-
 function lowOpacity() {
   boxRows[invertRowCounter].style.opacity = "0.1";
   boxRows[invertRowCounter].style.transition = "all 30s";
 }
-
 function warriorAttack() {
   document.getElementById("main-container-warrior").style.marginRight =
     "-550px";
   document.getElementById("main-container-nito").style.animation = "shake 1s";
-
   setTimeout(() => {
     document.getElementById("main-container-warrior").style.marginRight = "";
   }, 300);
   boxRows[invertRowCounter].style.transition = "all 2s";
 }
-
 function nitoAttack() {
   document.getElementById("main-container-nito").style.marginLeft = "-550px";
   setTimeout(() => {
@@ -280,13 +253,11 @@ function nitoAttack() {
   }, 300);
   boxRows[invertRowCounter].style.transition = "all 2s";
 }
-
 function nitoRegeneration() {
   healthNitoWidth = 12;
   document.getElementById("nitoHealth").style.width = "12em";
   document.getElementById("nitoHealth").style.transition = "all 8s";
 }
-
 function heal() {
   let newWidth = healthWidth + "em";
   if (newWidth < 12) {
@@ -295,7 +266,6 @@ function heal() {
     healthWidth = parseInt(newWidth);
   }
 }
-
 function reduceHealthBar() {
   let newWidth = healthWidth + "em";
   newWidth = healthWidth - 2 + "em";
