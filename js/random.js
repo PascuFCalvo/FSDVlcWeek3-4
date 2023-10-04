@@ -30,6 +30,7 @@ let winComparationGlobal = [];
 let guessResult = [];
 let rowIndex;
 let index = 0;
+let n = 1;
 let getAllRows = [];
 let guesserIndex = 0;
 function shuffle(remix) {
@@ -77,8 +78,9 @@ buttonSend.addEventListener("click", (e) => {
 });
 let generateTable = () => {
   let mainContainer = document.createElement("div");
-  mainContainer.classList.add("main-container");
+  mainContainer.classList.add("main-container" , "main-container-2");
   mainContainer.id = "main-container";
+  mainContainer.id = "main-container-2";
   let salutation = document.createElement("div");
   salutation.classList.add("salutation");
   salutation.id = "salutation";
@@ -203,11 +205,38 @@ let comparation = (array1, array2) => {
   winComparationGlobal.push(newguessResult);
   let guessers = document.getElementsByClassName("guesser");
   guessers.item(rowIndex).innerHTML = winComparationGlobal[guesserIndex];
+
+  if (newguessResult.includes("🟡")||newguessResult.includes("🔴")) {
+    console.log((document.getElementById("main-container-2").style.backgroundColor))
+    document.getElementById("main-container-2").style.animation = "shake 0.5s";
+    setTimeout(() => {
+      document.getElementById("main-container-2").style.animation = "";
+    }, 501);
+  }
+  if (
+    !newguessResult.includes("🔴") &&
+    !newguessResult.includes("🟡") &&
+    n <= 3
+  ) {
+    document.getElementById("main-container").style.animation = "jump 1s";
+    document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉";
+    document.getElementById("hide-win-condition").style.display = "none";
+  } else if (
+    (newguessResult.includes("🔴") || newguessResult.includes("🟡")) &&
+    n >= 3
+  ) {
+    document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭";
+    document.getElementById("main-container").style.animation = "drop 5s";
+    document.getElementById("hide-win-condition").style.display = "none";
+  }
 };
+
+
 makeTry = addEventListener("click", (e) => {
   if (e.target.id === "makeTry" && index == totalGameColors) {
     console.log("rowIndex", rowIndex);
     comparation(winConditionResult, winComparation);
+    n++;
     rowIndex--;
     guesserIndex++;
     index = 0;
