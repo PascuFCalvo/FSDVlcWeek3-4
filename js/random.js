@@ -110,10 +110,8 @@ let generateTable = () => {
     winCondition.appendChild(winConditionSquare);
   }
 
-  
-
   winCondition.appendChild(hideWinCondition);
-  
+
   mainContainer.appendChild(winCondition);
 
   for (let i = totalGameRows; i > 0; i--) {
@@ -206,14 +204,16 @@ let paintRow = () => {
 };
 
 function clickHandler(e) {
-  if (index <= winConditionResult.length - 1 && e.target.style.backgroundColor) {
+  if (
+    index <= winConditionResult.length - 1 &&
+    e.target.style.backgroundColor
+  ) {
     getAllRows.item(rowIndex).children[index].style.backgroundColor =
       e.target.style.backgroundColor;
     index++;
     winComparation.push(e.target.style.backgroundColor);
   }
 }
-
 
 let colorClear = () => {
   if (index >= 0) {
@@ -223,7 +223,6 @@ let colorClear = () => {
 
     winComparation.pop();
   }
-  
 };
 
 let comparation = (array1, array2) => {

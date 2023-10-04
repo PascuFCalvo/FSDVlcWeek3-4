@@ -27,21 +27,18 @@ let winConditionButton = document.getElementsByClassName(
 let contador = 0;
 let guesserIndex = 0;
 
-let colors = localStorage.getItem("colores")
-let colors2 = colors.split(",")
-
+let colors = localStorage.getItem("colores");
+let colors2 = colors.split(",");
 
 let colors3 = colors2;
 
-for (let i = 0; i<colors2.length; i++){
+for (let i = 0; i < colors2.length; i++) {
   cuadroscolores[i].style.backgroundColor = colors2[i];
-  cuadroscolores[i].setAttribute("id",colors2[i])
+  cuadroscolores[i].setAttribute("id", colors2[i]);
 }
-
 
 returnMain = addEventListener("click", (e) => {
   if (e.target.id === "returnMain") {
-    
     window.open("../index.html", "_self");
   }
 });
@@ -60,13 +57,13 @@ function shuffle(remix) {
       remix[currentIndex],
     ];
   }
-  
+
   return remix;
 }
 
 window.addEventListener("load", () => {
   winCondition = shuffle(colors2);
-  winCondition = shuffle(colors2).slice(0,-2)
+  winCondition = shuffle(colors2).slice(0, -2);
   paintWinConditionButtons();
   paintTry(row);
 });
@@ -75,7 +72,6 @@ function paintWinConditionButtons() {
   for (let i = 0; i < 4; i++) {
     winConditionButton[i].style.backgroundColor = winCondition[i];
   }
-
 }
 const paintTry = () => {
   colorPicker.addEventListener("click", colorPickerClick);
@@ -105,20 +101,17 @@ function colorPickerClick(eventoClick) {
         eventoClick.target.id;
       firstTry.children[contador].style.transition = "0.6s";
     } else if (row === 5) {
-      fifthTry.children[contador].style.backgroundColor =
-        eventoClick.target.id;
+      fifthTry.children[contador].style.backgroundColor = eventoClick.target.id;
       firstTry.children[contador].style.transition = "0.6s";
     } else if (row === 6) {
-      sixthTry.children[contador].style.backgroundColor =
-        eventoClick.target.id;
+      sixthTry.children[contador].style.backgroundColor = eventoClick.target.id;
       firstTry.children[contador].style.transition = "0.6s";
     }
     winComparation.push(eventoClick.target.id);
-    
+
     contador++;
   }
 }
-
 
 function colorClear() {
   if (row === 1) {
@@ -133,33 +126,30 @@ function colorClear() {
   } else if (row === 4) {
     fourthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
     firstTry.children[contador].style.transition = "0.6s";
-  }else if (row === 5) {
-   fifthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
-   firstTry.children[contador].style.transition = "0.6s";
-   }else if (row === 6) {
-   sixthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
-   firstTry.children[contador].style.transition = "0.6s";
-   }
-  
-  if (contador > 0) {
+  } else if (row === 5) {
+    fifthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
+    firstTry.children[contador].style.transition = "0.6s";
+  } else if (row === 6) {
+    sixthTry.children[contador - 1].style.backgroundColor = "rgba(0,0,0,0)";
+    firstTry.children[contador].style.transition = "0.6s";
+  }
 
+  if (contador > 0) {
     winComparation.pop();
     contador--;
   }
 }
 
 function comparation(array1, array2) {
-  
-  for (let i = 0; i < array1.length ; i++) {
-   if (array1[i]==array2[i]){
-        guessResult.push("🟢");
-  
-    }else if(array1[i] != array2[i] && array1.includes(array2[i])){
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] == array2[i]) {
+      guessResult.push("🟢");
+    } else if (array1[i] != array2[i] && array1.includes(array2[i])) {
       guessResult.push("🟡");
-    }else if(array1[i]!=array2[i]){
-        guessResult.push("🔴");
+    } else if (array1[i] != array2[i]) {
+      guessResult.push("🔴");
     }
-    
+
     var newguessResult = guessResult.toString().replace(/,/g, "");
   }
   winComparationGlobal.push(newguessResult);
@@ -210,8 +200,9 @@ function comparation(array1, array2) {
     document.getElementById("salutation").innerText = "🎉🎉YOU WIN🎉🎉";
     document.getElementById("hide-win-condition").style.display = "none";
   } else if (
-    (newguessResult.includes("🔴") || newguessResult.includes("🟡")) && n >= 6)
-   {
+    (newguessResult.includes("🔴") || newguessResult.includes("🟡")) &&
+    n >= 6
+  ) {
     document.getElementById("salutation").innerText = "😭😭YOU LOOSE😭😭";
     document.getElementById("main-container").style.animation = "drop 5s";
     document.getElementById("hide-win-condition").style.display = "none";
@@ -222,7 +213,6 @@ function comparation(array1, array2) {
 
 retTry.addEventListener("click", (e) => {
   if (e.target.id === "retTry") {
-    
     colorClear();
   }
 });
