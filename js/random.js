@@ -250,8 +250,7 @@ let comparation = (array1, array2) => {
   guessers.item(rowIndex).innerHTML = winComparationGlobal[guesserIndex];
 
   if (newguessResult.includes("🟡")||newguessResult.includes("🔴")) {
-    console.log(totalGameRows)
-    console.log(n)
+    
     document.getElementById("main-container-2").style.animation = "shake 0.5s";
     setTimeout(() => {
       document.getElementById("main-container-2").style.animation = "";

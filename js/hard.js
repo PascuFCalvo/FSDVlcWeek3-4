@@ -188,6 +188,7 @@ function comparation(array1, array2) {
   if (healthWidth <= 0) {
     document.getElementById("salutation").innerText = "☠️☠️☠️☠️☠️☠️";
     youDied();
+    square.removeEventListener("click")
   }
   if (newguessResult.includes("❤️‍🔥")||newguessResult.includes("☠️")) {
     document.getElementById("main-container").style.animation = "shake 0.5s";
