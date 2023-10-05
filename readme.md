@@ -46,34 +46,34 @@ Desarrollada como formacion del Bootcamp de Full Stack Developer de Geekshubs Ac
 ​
 Tercer proyecto creado durante la semana 3 y 4 del bootcamp, centrado sobretodo en aprender el manejo del DOM/BOM, generacion dinamica de elementos y mejora de la esctructura de codigo y carpetas.
 
-##Aqui las diferentes vistas del juego:
+## Aqui las diferentes vistas del juego:
 
-######Menu principal:
+###### Menu principal:
 Puedes consultar el tutorial, introducir tu nombre de jugador y elegir la dificultad.
 
 <img src = "./resources/main.jpg" width = "300px">
 
-######Tutorial:
+###### Tutorial:
 Si no sabes jugar al Mastermind consulta el tutorial.
 
 <img src = "./resources/tutorial.jpg" width = "300px">
 
-######Seleccion de colores:
+###### Seleccion de colores:
 Aqui puedes personalizar la partida.
 
 <img src = "./resources/colors.jpg" width = "300px">
 
-######El tablero de juego:
+###### El tablero de juego:
 Selecciona la combinacion de colores e intenta adivinar la combinacion oculta:
 
 ​<img src = "./resources/boardnormal.jpg" width = "300px">
 
-######Dark souls mode:
+###### Dark souls mode:
 Si el reto normal es poco, prueba este modo
 
 ​<img src = "./resources/souls.jpg" width = "500px">
 
-######Custom mode:
+###### Custom mode:
 Genera el tablero y las combinaciones de color a tu gusto para ajustar a la dificultad que mas te guste.
 
 ​<img src = "./resources/boardcustom.jpg" width = "300px">
@@ -82,10 +82,10 @@ Genera el tablero y las combinaciones de color a tu gusto para ajustar a la difi
 
 
 
-###Observaciones
+### Observaciones
 ​
-- ��Todo el codigo ha sido crado en em's
-- ��Hay que refactorizar parte del codigo para no repetir algunas funciones
+- ��Todo el codigo ha sido creado en em's.
+- ��Hay que refactorizar parte del codigo para no repetir algunas funciones.
 
 <br>
 <br>
