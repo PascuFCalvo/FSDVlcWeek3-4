@@ -122,6 +122,22 @@ buttonSend.addEventListener("click", (e) => {
 
       document.getElementById("inputnumbers").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
+    }else if(totalGameColors >= 7 && totalGameRows >=7 ) {
+      console.log("entra")
+      document.getElementById("body").style.transform = "scale(0.8)"
+      generateTable();
+      paintRow();
+      document.getElementById("main-container").style.display = "none";
+      winConditionComplete = shuffle(colors);
+      winConditionPickColors = winConditionComplete.slice(
+        0,
+        parseInt(totalGameColors) + 2
+      );
+      winConditionResult = shuffle(
+        winConditionPickColors.slice(0, parseInt(totalGameColors))
+      );
+      paintWinCondition();
+      paintSquareColors();
     }else if(totalGameColors <= 8 && totalGameRows <= 8) {
       generateTable();
       paintRow();
@@ -136,7 +152,8 @@ buttonSend.addEventListener("click", (e) => {
       );
       paintWinCondition();
       paintSquareColors();
-    } 
+    }
+
     }
   }
 );
