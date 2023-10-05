@@ -122,7 +122,7 @@ buttonSend.addEventListener("click", (e) => {
 
       document.getElementById("inputnumbers").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
-    }else if(totalGameColors >= 7 && totalGameRows >=7 ) {
+    }else if(totalGameColors >= 6 && totalGameRows >=6 ) {
       console.log("entra")
       document.getElementById("body").style.transform = "scale(0.8)"
       generateTable();
