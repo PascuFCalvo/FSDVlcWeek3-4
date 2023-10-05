@@ -77,7 +77,7 @@ hard = addEventListener("click",(e)=>{
 
 butonTutorial = addEventListener("click",(e)=>{
    if(e.target.id === "butonTutorial"){
-      window.open("./html/tutorial.html","-self");
+      window.open("./html/tutorial.html","_self");
    }
 })
 
