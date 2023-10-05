@@ -30,7 +30,7 @@ Desarrollada como formacion del Bootcamp de Full Stack Developer de Geekshubs Ac
 
 
 
-​<p align= "center"><a href = "https://github.com/PascuFCalvo/FSDVlcWeek1">Haz Click para acceder al repositorio</a></p>
+​<p align= "center"><a href = "https://pascufcalvo.github.io/FSDVlcWeek3-4/index.html">CLICK TO PLAY</a></p>
                    
 ​
 ## Tabla de contenidos
