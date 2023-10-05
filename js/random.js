@@ -123,7 +123,6 @@ buttonSend.addEventListener("click", (e) => {
       document.getElementById("inputnumbers").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
     }else if(totalGameColors >= 6 && totalGameRows >=6 ) {
-      console.log("entra")
       document.getElementById("body").style.transform = "scale(0.8)"
       generateTable();
       paintRow();
@@ -256,6 +255,8 @@ let paintSquareColors = () => {
   }
   return colorPickSquare;
 };
+//comment to commit
+
 //estas dos funciones han ido mutando y al final es magia chatgpt porque no tenia manera de eliminar un mane
 //jador de eventos
 let paintRow = () => {
