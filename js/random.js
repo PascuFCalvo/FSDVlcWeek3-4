@@ -2,6 +2,8 @@ let squarecolors = document.getElementsByClassName("color-cl");
 let returnMain = document.getElementById("returnMain");
 let playagain = document.getElementById("play-again");
 let userName = localStorage.getItem("userName");
+let inputrows = document.getElementById("inputrows");
+let inputnumbers = document.getElementById("inputnumbers");
 let currentRowToFill = 1;
 let colors = [
   "red",
@@ -75,13 +77,39 @@ buttonSend.addEventListener("click", (e) => {
     totalGameColors = inputnumbers.value;
     rowIndex = totalGameRows - 1;
     
-    if((totalGameRows > 8 || totalGameRows < 0) && (totalGameColors > 8 || totalGameColors < 0)){
+    if(((totalGameRows > 8 || totalGameRows < 0)) && (totalGameColors > 8 || totalGameColors < 0)) {
       document.getElementById("inputrows").style.backgroundColor = "rgb(255, 0, 0,0.2)"
       document.getElementById("inputrows").style.transition = ("1.5s")
 
       document.getElementById("inputnumbers").style.backgroundColor = "rgb(255, 0, 0,0.2)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
-    } else if(totalGameColors > 8 || totalGameColors < 0){
+      
+    }else if(inputrows.value === "" && inputnumbers.value === ""){
+
+      document.getElementById("inputrows").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+      document.getElementById("inputrows").style.transition = ("1.5s")
+
+      document.getElementById("inputnumbers").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+      document.getElementById("inputnumbers").style.transition = ("1.5s")
+
+    }
+    
+    else if (inputrows.value ===""){
+      document.getElementById("inputrows").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+      document.getElementById("inputrows").style.transition = ("1.5s")
+
+      document.getElementById("inputnumbers").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
+      document.getElementById("inputnumbers").style.transition = ("1.5s")
+
+    }else if (inputnumbers.value == ""){
+      document.getElementById("inputnumbers").style.backgroundColor = "rgb(255, 0, 0,0.2)"
+      document.getElementById("inputnumbers").style.transition = ("1.5s")
+
+      document.getElementById("inputrows").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
+      document.getElementById("inputrows").style.transition = ("1.5s")
+
+    }
+     else if(totalGameColors > 8 || totalGameColors < 0){
       document.getElementById("inputnumbers").style.backgroundColor = "rgb(255, 0, 0,0.2)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
 
@@ -94,11 +122,7 @@ buttonSend.addEventListener("click", (e) => {
 
       document.getElementById("inputnumbers").style.backgroundColor = "rgba(255, 254, 254, 0.049)"
       document.getElementById("inputnumbers").style.transition = ("1.5s")
-    }
-
-
-    if (totalGameColors <= 8 && totalGameRows <= 8) {
-      
+    }else if(totalGameColors <= 8 && totalGameRows <= 8) {
       generateTable();
       paintRow();
       document.getElementById("main-container").style.display = "none";
@@ -112,11 +136,10 @@ buttonSend.addEventListener("click", (e) => {
       );
       paintWinCondition();
       paintSquareColors();
-    } else {
-      console.log("error");
+    } 
     }
   }
-});
+);
 let generateTable = () => {
   let mainContainer = document.createElement("div");
   mainContainer.classList.add("main-container" , "main-container-2");
