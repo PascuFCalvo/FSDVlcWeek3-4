@@ -5,6 +5,8 @@ let random = document.getElementById("randomButton")
 let userName = document.getElementById('userName')
 let userNamePicked = ""
 
+let butonTutorial = document.getElementById("butonTutorial");
+
 userName.addEventListener('input', () => {	
    
 	
@@ -71,5 +73,11 @@ hard = addEventListener("click",(e)=>{
       window.open("./html/random.html","_self");
    }}
 
+})
+
+butonTutorial = addEventListener("click",(e)=>{
+   if(e.target.id === "butonTutorial"){
+      window.open("./html/tutorial.html","-self");
+   }
 })
 
