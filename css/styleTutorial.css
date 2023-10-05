@@ -14,13 +14,13 @@ body {
 
 .main-container {
    position: relative;
-   border-radius: 20px;
+   border-radius: 1.25em;
    display: flex;
    width: 30em;
-   height: 40em;
+   height: 44em;
    text-align: center;
    flex-direction: column;
-   box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
+   box-shadow: inset 0 0 6.25em rgba(255, 255, 255, .1);
 }
 
 .return-to-main {
@@ -33,7 +33,7 @@ body {
    height: 3em;
    width: 10em;
    border-radius: 0.5em;
-   border: solid 2px aliceblue;
+   border: solid 0.125em aliceblue;
    color: aliceblue;
    display: flex;
    justify-content: center;

@@ -18,26 +18,30 @@ body {
    color: aliceblue;
 }
 .main-container {
-   border-radius: 20px;
+   border-radius: 1.25em;
    width: 30em;
    height: 30em;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
+   box-shadow: inset 0 0 6.25em rgba(255, 255, 255, .1);
 }
 .main-container p {
-   font-size: 30px;
+   font-size: 1.875em;
+}
+
+.return-to-main p {
+   font-size: 1em;
 }
 .color-row {
    display: flex;
    align-items: center;
    justify-content: center;
-   margin-bottom: 2px;
+   margin-bottom: 0.125em;
    width: 25em;
    height: 5em;
-   border: solid 2px rgb(255, 0, 0)
+   border: solid 0.125em rgb(255, 0, 0)
 }
 .colorrow:hover {
    cursor: pointer;
@@ -46,38 +50,62 @@ body {
 .color-pick-element {
    width: 4.2em;
    height: 4.2em;
-   border: solid 1px green;
+   border: solid 0.063em green;
 }
 .color-row1 {
-   border-radius: 10px;
-   margin-bottom: 10px;
+   border-radius: 0.625em;
+   margin-bottom: 0.625em;
    width: 25em;
    height: 5em;
    background: linear-gradient(90deg, #1B676B 0%, #519548 20%, #88C425 40%, #BEF202 60%, #EAFDE6 80%, #D9CEB2 100%);
 }
 .color-row2 {
-   border-radius: 10px;
-   margin-bottom: 10px;
+   border-radius: 0.625em;
+   margin-bottom: 0.625em;
    width: 25em;
    height: 5em;
    background: linear-gradient(90deg, #F04155 0%, #FF823A 20%, #F2F26F 40%, #FFF7BD 60%, #EAFDE6 80%, #F0E2A4 100%);
 }
 .color-row3 {
-   border-radius: 10px;
-   margin-bottom: 10px;
+   border-radius: 0.625em;
+   margin-bottom: 0.625em;
    width: 25em;
    height: 5em;
    background: linear-gradient(90deg, #FF9900 0%, #424242 20%, #E9E9E9 40%, #BCBCBC 60%, #3299BB 80%, #604848 100%);
 }
 .color-row4 {
-   border-radius: 10px;
-   margin-bottom: 10px;
+   border-radius: 0.625em;
+   margin-bottom: 0.625em;
    width: 25em;
    height: 5em;
    background: linear-gradient(90deg, #B3CC57 0%, #ECF081 20%, #FFBE40 40%, #EF746F 60%, #AB3E5B 80%, #7CCCE5 100%);
 }
 
-@media only screen and (max-width: 600px) {
+.return-to-main {
+   display: flex;
+   
+   height: 3em;
+   width: 10em;
+   border-radius: 0.5em;
+   border: solid 0.125em aliceblue;
+   color: aliceblue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 0.625em;
+   margin-left: 14.688;
+   
+   background-color: rgba(127, 255, 212, 0);
+}
+.return-to-main:hover {
+   cursor: pointer;
+   background-color: rgb(0, 255, 170);
+}
+.return-to-main:active {
+   opacity: 1;
+}
+
+@media only screen and (max-width: 37.5em) {
    body {
      scale: 0.8;
    }

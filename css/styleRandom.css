@@ -23,8 +23,8 @@ body {
       border-radius: 10px;
      border: 0;
      outline: none;
-     width: 24px;
-     max-width: 400px;
+     width: 1.5em;
+     max-width: 25em;
      font-size: 1.5em;
      transition: padding 0.3s 0.2s ease;
      padding: 0.2em;
@@ -41,11 +41,11 @@ input::-webkit-inner-spin-button {
       cursor: pointer;
       text-align: center;
       background-color: rgba(255, 254, 254, 0.049);
-      border-radius: 10px;
+      border-radius: 0.625em;
      border: 0;
      outline: none;
-     width: 24px;
-     max-width: 400px;
+     width: 1.5em;
+     max-width: 25em;
      font-size: 1.5em;
      transition: padding 0.3s 0.2s ease;
      padding: 0.2em;
@@ -58,13 +58,13 @@ input::-webkit-inner-spin-button {
 
 .main-container-2 {
    position: relative;
-   border-radius: 20px;
+   border-radius: 1.25em;
    display: flex;
    width: auto;
    height: auto;
    text-align: center;
    flex-direction: column;
-   box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
+   box-shadow: inset 0 0 6.25em rgba(255, 255, 255, .1);
 }
 @keyframes drop {
    0% {
@@ -128,13 +128,13 @@ input::-webkit-inner-spin-button {
 
 .main-container {
    position: relative;
-   border-radius: 20px;
+   border-radius: 1.25em;
    display: flex;
    width: auto;
    height: auto;
    text-align: center;
    flex-direction: column;
-   box-shadow: inset 0 0 100px rgba(255, 255, 255, .1);
+   box-shadow: inset 0 0 6.25em rgba(255, 255, 255, .1);
 }
 @keyframes drop {
    0% {
@@ -195,7 +195,7 @@ input::-webkit-inner-spin-button {
    }
 }
 .salutation {
-   margin-top: 20px;
+   margin-top: 1.25em;
    font-size: 1.5em;
    padding-left: 1em;
    padding-right: 1em;
@@ -205,20 +205,20 @@ input::-webkit-inner-spin-button {
 }
 .colorPicker {
    display: flex;
-   margin-left: 30px;
+   margin-left: 1.875em;
 }
 #colorPicker {
    display: flex
 }
 .hide-win-condition {
-   border-radius: 10px;
+   border-radius: 0.625em;
    position: absolute;
    background-color: #8b9099;
    
    height: 4em;
    width: 98%;
    left: 1%;
-   top: 4.0em;
+   top: 4.5em;
 }
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
    .container {
@@ -250,7 +250,7 @@ input::-webkit-inner-spin-button {
    }
 }
 .subcontainer input {
-   margin: 10px
+   margin: 0.625em
 }
 .winConditionRow {
    display: flex;
@@ -266,8 +266,8 @@ input::-webkit-inner-spin-button {
    width: 2em;
    height: 2em;
    cursor: pointer;
-   margin-left: -24px;
-   font-size: 40px;
+   margin-left: -0.5em;
+   font-size: 2.5em;
 }
 #makeTry:active {
    opacity: 0.5;
@@ -276,8 +276,8 @@ input::-webkit-inner-spin-button {
    width: 2em;
    height: 2em;
    cursor: pointer;
-   margin-left: 23px;
-   font-size: 40px;
+   
+   font-size: 2.5em;
 }
 #retTry:active {
    opacity: 0.5;
@@ -291,9 +291,9 @@ input::-webkit-inner-spin-button {
    width: 5em;
    height: 2em;
    background-color: rgba(127, 255, 212, 0);
-   border: solid 2px white;
-   border-radius: 6px;
-   margin: 8px;
+   border: solid 0.125em white;
+   border-radius: 0.625em;
+   margin: 0.5em;
 }
 .buttonSend:hover {
    cursor: pointer;
@@ -341,7 +341,7 @@ input::-webkit-inner-spin-button {
    height: 3em;
    width: 10em;
    border-radius: 0.5em;
-   border: solid 2px aliceblue;
+   border: solid 0.125em aliceblue;
    color: aliceblue;
    display: flex;
    justify-content: center;
@@ -376,7 +376,7 @@ input::-webkit-inner-spin-button {
    height: 3em;
    width: 10em;
    border-radius: 0.5em;
-   border: solid 2px aliceblue;
+   border: solid 0.125em aliceblue;
    color: aliceblue;
    display: flex;
    justify-content: center;
@@ -408,8 +408,8 @@ input::-webkit-inner-spin-button {
    margin-right: 1em;
 }
 .squareColor {
-   margin-left: 20px;
-   border-radius: 8px;
+   margin-left: 1.25em;
+   border-radius: 0.5em;
    -webkit-box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.7);
    -moz-box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.7);
    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.7);
@@ -418,12 +418,12 @@ input::-webkit-inner-spin-button {
    cursor: pointer;
 }
 .guesser {
-   padding: 10px;
+   padding: 0.625em;
    margin-left: 1em;
    border-radius: 2em;
    justify-content: center;
    text-align: center;
-   margin-top: 10px;
+   margin-top: 0.625em;
    width: auto;
    height: auto;
    background-color: rgba(250, 235, 215, 0.505);

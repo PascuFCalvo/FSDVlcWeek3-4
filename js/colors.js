@@ -27,3 +27,9 @@ mainContainer = addEventListener("click", (e) => {
     localStorage.setItem("colores", colores);
   }
 });
+
+returnMain = addEventListener("click", (e) => {
+  if (e.target.id === "returnMain") {
+    window.open("../index.html", "_self");
+  }
+});
